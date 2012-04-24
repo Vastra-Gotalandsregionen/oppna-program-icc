@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	
+	<!-- Requires strings (1..n) to be trimmed and not empty -->
+	<!-- Valid Strings: "x+", "x+ y+"-->
+	<!-- Invalid Strings: "", " ", " x+", "x+ "-->	
+	<xs:simpleType name="trimedNotNullStringsCodeType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:pattern value="\S+(\s+\S+)*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- Requires string (1..n) to be trimmed and not empty -->
+	<!-- Valid Strings: "x+"-->
+	<!-- Invalid Strings: "", " ", " x+", "x+ "-->
+	<xs:simpleType name="trimedNotNullStringCodeType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:pattern value="\S+"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Requires string (0..n) to be trimmed. Can be empty -->
+	<!-- Valid Strings: "", "x+"-->
+	<!-- Invalid Strings: " ", " x+", "x+ "-->
+	<xs:simpleType name="trimedStringCodeType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:pattern value="\S*"/>
+		</xs:restriction>
+	</xs:simpleType>	
+</xs:schema>

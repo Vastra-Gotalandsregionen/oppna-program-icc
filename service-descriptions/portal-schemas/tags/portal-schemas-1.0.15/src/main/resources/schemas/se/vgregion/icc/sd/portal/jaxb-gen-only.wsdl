@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 
+	name="jaxb.gen.only"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns="urn:jaxb.gen.only" 
+	targetNamespace="urn:jaxb.gen.only">
+
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://portal.vgregion.se/createuser" schemaLocation="portal-createuser.xsd" />
+			<xsd:import namespace="http://portal.vgregion.se/activateuser" schemaLocation="portal-activateuser.xsd" />
+			<xsd:import namespace="http://portal.vgregion.se/inviteuser" schemaLocation="portal-inviteuser.xsd" />			
+		</xsd:schema>
+	</wsdl:types>
+
+</wsdl:definitions>
