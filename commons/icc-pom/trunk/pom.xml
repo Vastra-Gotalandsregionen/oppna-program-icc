@@ -64,6 +64,7 @@
 		<cobertura-maven-plugin.version>2.4</cobertura-maven-plugin.version>
 		<cxf-codegen-plugin.version>2.1.9</cxf-codegen-plugin.version>
 		<findbugs-maven-plugin.version>2.3.1</findbugs-maven-plugin.version>
+		<gpg.version>1.4</gpg.version>
 		<maven-assembly-plugin.version>2.2-beta-5</maven-assembly-plugin.version>
 		<maven-checkstyle-plugin.version>2.4</maven-checkstyle-plugin.version>
 		<maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
@@ -503,10 +504,20 @@
 							<debug>false</debug>
 						</configuration>
 					</plugin>
-					<!-- ML FIX. Temp removed <plugin> <groupId>org.apache.maven.plugins</groupId> 
-						<artifactId>maven-gpg-plugin</artifactId> <executions> <execution> <id>sign-artifacts</id> 
-						<phase>verify</phase> <goals> <goal>sign</goal> </goals> </execution> </executions> 
-						</plugin> -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${gpg.version}</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 						<artifactId>maven-compiler-plugin</artifactId>
 						<configuration>
