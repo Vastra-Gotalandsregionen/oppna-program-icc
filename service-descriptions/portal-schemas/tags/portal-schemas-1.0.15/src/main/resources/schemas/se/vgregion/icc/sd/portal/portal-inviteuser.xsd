@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://portal.vgregion.se/inviteuser"
+	xmlns="http://portal.vgregion.se/inviteuser"
+	elementFormDefault="qualified" 
+	version="1.0">
+	
+	<xs:include schemaLocation="globalTypes.xsd"/>
+
+	<xs:element name="inviteUser">
+        <xs:complexType>
+	        <xs:sequence>
+				<xs:element name="userId" type="trimedNotNullStringCodeType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="customURL" type="trimedNotNullStringCodeType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="customMessage" type="trimedNotNullStringsCodeType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="system" type="trimedNotNullStringsCodeType" minOccurs="1" maxOccurs="1" />
+	        </xs:sequence>
+	    </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="inviteUserResponse">	    
+       <xs:complexType>
+	        <xs:sequence>
+				<xs:element name="userId" type="trimedNotNullStringCodeType" minOccurs="1" maxOccurs="1" />			
+				<xs:element name="statusCode" type="inviteUserStatusCodeType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="message" type="trimedNotNullStringCodeType" minOccurs="1" maxOccurs="1" />
+	        </xs:sequence>
+	    </xs:complexType>
+    </xs:element>
+    
+	<xs:simpleType name="inviteUserStatusCodeType">
+    	<xs:restriction base="xs:string">
+        	<!-- SUCCESS: Success -->
+        	<xs:enumeration value="SUCCESS"/>
+        	<!-- ERROR: Error -->
+        	<xs:enumeration value="ERROR"/>
+    	</xs:restriction>
+	</xs:simpleType>    
+
+</xs:schema>
