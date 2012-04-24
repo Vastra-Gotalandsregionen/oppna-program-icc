@@ -17,7 +17,7 @@
 		<version>1.1.5</version>
 	</parent>
 
-	<groupId>se.vgregion.icc.sd.delegation</groupId>
+	<groupId>se.vgregion.icc.sd.authorization</groupId>
 	<artifactId>authorization-delegation-schemas</artifactId>
 	<version>1.0.2-SNAPSHOT</version>
 	<name>authorization-delegation-schemas</name>
