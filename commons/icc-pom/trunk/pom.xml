@@ -18,7 +18,7 @@
 
 	<groupId>se.vgregion.icc</groupId>
 	<artifactId>icc-pom</artifactId>
-	<version>1.1.5-SNAPSHOT</version>
+	<version>1.1.5</version>
 	<packaging>pom</packaging>
 	<name>icc-pom</name>
 	<description>Integrations, services and service descriptions published by VästraGötalandsregionen ICC in the oppna-program community.</description>
@@ -123,9 +123,9 @@
 	<!-- Environment Settings -->
 	
 	<scm>
-		<connection>scm:svn://oppna-program-icc.googlecode.com/svn/commons/icc-pom/trunk</connection>
-		<developerConnection>scm:svn:https://oppna-program-icc.googlecode.com/svn/commons/icc-pom/trunk</developerConnection>
-		<url>http://oppna-program-icc.googlecode.com/svn/commons/icc-pom/trunk</url>
+		<connection>scm:svn://oppna-program-icc.googlecode.com/svn/commons/icc-pom/tags/icc-pom-1.1.5</connection>
+		<developerConnection>scm:svn:https://oppna-program-icc.googlecode.com/svn/commons/icc-pom/tags/icc-pom-1.1.5</developerConnection>
+		<url>http://oppna-program-icc.googlecode.com/svn/commons/icc-pom/tags/icc-pom-1.1.5</url>
 	</scm>
 
 	<repositories>
