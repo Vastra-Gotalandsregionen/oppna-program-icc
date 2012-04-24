@@ -21,6 +21,8 @@
 	<version>1.1.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>icc-pom</name>
+	<description>Integrations, services and service descriptions published by VästraGötalandsregionen ICC in the oppna-program community.</description>
+	<url>http://oppna-program-icc.googlecode.com</url>
 
 	<licenses>
 		<license>
@@ -30,6 +32,31 @@
 			<comments>The LGPL places copyleft restrictions on the program itself but does not apply these restrictions to other software that merely links with the program.</comments>
 		</license>
 	</licenses>
+
+	<developers>
+		<developer>
+			<id>magnus</id>
+			<name>Magnus Larsson</name>
+			<organization>Callista Enterprise AB</organization>
+			<organizationUrl>http://callistaenterprise.se</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<id>israel</id>
+			<name>Israel Alvarez Gonzalez</name>
+			<organization>Västra Götalandsregionen</organization>
+			<organizationUrl>http://www.vgregion.se</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+	<developers>
 
 	<modules>
 		<module>internal</module>
