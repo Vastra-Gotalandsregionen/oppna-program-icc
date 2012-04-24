@@ -10,13 +10,13 @@
 
 	<groupId>se.vgregion.icc.sd.delegation</groupId>
 	<artifactId>authorization-delegation-schemas</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>authorization-delegation-schemas</name>
 
 	<scm>
-		<connection>scm:svn://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/trunk</connection>	
-		<developerConnection>scm:svn:https://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/trunk</developerConnection>	
-		<url>http://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/trunk</url>	
+		<connection>scm:svn://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/tags/authorization-delegation-schemas-1.0.0</connection>	
+		<developerConnection>scm:svn:https://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/tags/authorization-delegation-schemas-1.0.0</developerConnection>	
+		<url>http://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/tags/authorization-delegation-schemas-1.0.0</url>	
 	</scm>
 
 	<properties>
