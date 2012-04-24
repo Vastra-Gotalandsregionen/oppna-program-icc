@@ -12,8 +12,8 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
   
 	<parent>
   		<groupId>se.vgregion.icc</groupId>
-  		<artifactId>icc-pom</artifactId>
-  		<version>1.1.1-SNAPSHOT</version>
+  		<artifactId>icc-pom-open</artifactId>
+  		<version>1.1.5</version>
 	</parent>
 
 	<!-- lastest release: portal-schemas-1.0.2 -->

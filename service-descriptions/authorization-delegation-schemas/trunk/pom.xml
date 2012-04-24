@@ -4,8 +4,8 @@
 
 	<parent>
 		<groupId>se.vgregion.icc</groupId>
-		<artifactId>icc-pom</artifactId>
-		<version>1.1.1-SNAPSHOT</version>
+		<artifactId>icc-pom-open</artifactId>
+		<version>1.1.5</version>
 	</parent>
 
 	<groupId>se.vgregion.icc.sd.delegation</groupId>
