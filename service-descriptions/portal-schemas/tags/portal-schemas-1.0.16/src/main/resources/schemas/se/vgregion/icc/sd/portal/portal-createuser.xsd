@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2010 Västra Götalandsregionen This library is free software; you can redistribute it and/or modify it
+  under the terms of version 2.1 of the GNU Lesser General Public License as published by the Free Software
+  Foundation. This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+  even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
+  Public License for more details. You should have received a copy of the GNU Lesser General Public License along
+  with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+  02111-1307 USA
+-->
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://portal.vgregion.se/createuser"
+	xmlns="http://portal.vgregion.se/createuser"
+	elementFormDefault="qualified" 
+	version="1.0">
+
+	<xs:include schemaLocation="globalTypes.xsd"/>
+
+	<xs:element name="createUser">	    
+        <xs:complexType>
+	        <xs:sequence>
+				<xs:element name="userFirstName" type="trimedNotNullStringCodeType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="userSurName" type="trimedNotNullStringsCodeType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="userMiddleName" type="trimedNotNullStringsCodeType" minOccurs="0" maxOccurs="1" />
+				<xs:element name="externStructurepersonDN" type="trimedNotNullStringCodeType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="userTelephoneNumber" type="trimedStringCodeType" minOccurs="0" maxOccurs="1" />
+				<xs:element name="userMobileTelephoneNumber" type="trimedStringCodeType" minOccurs="0" maxOccurs="1" />
+				<xs:element name="userMail" type="trimedNotNullStringCodeType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="sponsor" type="trimedNotNullStringCodeType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="userType" type="trimedStringCodeType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="dateLimit" type="trimedNotNullStringCodeType" minOccurs="1" maxOccurs="1"/>				
+	        </xs:sequence>
+	    </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="createUserResponse">	    
+       <xs:complexType>
+	        <xs:sequence>
+				<xs:element name="vgrId" type="trimedStringCodeType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="statusCode" type="createUserStatusCodeType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="message" type="trimedStringCodeType" minOccurs="1" maxOccurs="1"/>
+	        </xs:sequence>
+	    </xs:complexType>
+    </xs:element>
+    
+	<xs:simpleType name="createUserStatusCodeType">
+    	<xs:restriction base="xs:string">
+        	<!-- SUCCESS: New user-->
+        	<xs:enumeration value="NEW_USER"/>
+        	<!-- SUCCESS: Existing external user -->
+        	<xs:enumeration value="EXISTING_EXTERNAL_USER"/>
+        	<!-- SUCCESS: Existing internal user -->
+        	<xs:enumeration value="EXISTING_INTERNAL_USER"/>
+        	<!-- NOT_AUTHORIZED: Sponsor is not authorized (doesn't exist or is not active) to create the user in LDAP catalog -->			
+			<xs:enumeration value="SPONSOR_NOT_AUTHORIZED"/>        	
+        	<!-- ERROR: Mule Error -->
+			<xs:enumeration value="ERROR"/>		
+    	</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
