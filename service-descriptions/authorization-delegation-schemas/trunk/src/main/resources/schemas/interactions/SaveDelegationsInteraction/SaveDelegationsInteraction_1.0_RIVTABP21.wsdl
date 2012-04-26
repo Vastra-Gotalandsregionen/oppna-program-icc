@@ -25,13 +25,14 @@
     <xs:schema targetNamespace='urn:riv:authorization:delegation:SaveDelegations:1:rivtabp21'>
       <xs:import schemaLocation='SaveDelegationsResponder_1.0.xsd' namespace='urn:riv:authorization:delegation:SaveDelegationsResponder:1' />
       <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
+      <xs:element name="delegationBlock" type="tjsr:DelegationBlock"></xs:element>
     </xs:schema>
   </wsdl:types>
   <wsdl:message name='SaveDelegationsRequest'>
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
       <wsdl:documentation>TBD</wsdl:documentation>
     </wsdl:part>
-    <wsdl:part name='parameters' element='tjsr:SaveDelegations' />
+    <wsdl:part name='parameters' element='tns:delegationBlock' />
   </wsdl:message>
   <wsdl:message name='SaveDelegationsResponse'>
     <wsdl:part name='parameters' element='tjsr:SaveDelegationsResponse' />
