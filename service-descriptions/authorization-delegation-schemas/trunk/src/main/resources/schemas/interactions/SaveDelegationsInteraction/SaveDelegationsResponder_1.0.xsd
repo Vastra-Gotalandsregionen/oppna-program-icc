@@ -10,7 +10,7 @@
   elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
   <xs:import schemaLocation='../../core_components/authorization_delegation_1.0.xsd' namespace='urn:riv:authorization:delegation:1' />
   <xs:element name='SaveDelegations' type='tns:SaveDelegationsType' />
-  <xs:element name='SaveDelegationsResponse' type='tns:SaveDelegationsResponseType' />
+  <xs:element name='SaveDelegationsResponse' type='tns:Delegations' />
   <xs:complexType name='SaveDelegationsType'>
     <xs:sequence>
       <xs:element name='SomeElement' type='core:SomeElementType' />
@@ -32,7 +32,6 @@
     </xs:restriction>
   </xs:simpleType>
 
-
   <xs:complexType name="DelegationBlock">
     <xs:sequence>
       <xs:element name='id' type='xs:long' />
@@ -52,6 +51,12 @@
       <xs:element name='delegateTo' type='xs:string' />
       <xs:element name='role' type='xs:string' />
       <xs:element name='delegationKey' type='xs:long' />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Delegations">
+    <xs:sequence>
+      <xs:element name="content" type="tns:Delegation" maxOccurs="unbounded" minOccurs="0"></xs:element>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
