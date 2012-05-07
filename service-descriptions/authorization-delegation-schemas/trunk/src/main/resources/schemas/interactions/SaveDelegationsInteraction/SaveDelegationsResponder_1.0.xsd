@@ -11,6 +11,12 @@
   <xs:import schemaLocation='../../core_components/authorization_delegation_1.0.xsd' namespace='urn:riv:authorization:delegation:1' />
   <xs:element name='SaveDelegations' type='tns:SaveDelegationsType' />
   <xs:element name='SaveDelegationsResponse' type='tns:Delegations' />
+  <xs:element name='getDelegationsResponse' type='tns:Delegations' />
+  <xs:element name='getActiveDelegationsResponse' type='tns:Delegations' />
+  <xs:element name='getInactiveDelegationsResponse' type='tns:Delegations' />
+  <xs:element name='getDelegationsByUnitAndRoleResponse' type='tns:Delegations' />
+  <xs:element name='getDelegationResponse' type='tns:Delegations' />
+  <xs:element name='hasDelegationResponse' type='tns:Delegations' />
   <xs:complexType name='SaveDelegationsType'>
     <xs:sequence>
       <xs:element name='SomeElement' type='core:SomeElementType' />
@@ -34,23 +40,21 @@
 
   <xs:complexType name="DelegationBlock">
     <xs:sequence>
-      <xs:element name='id' type='xs:long' />
       <xs:element name='delegations' type="tns:Delegation" maxOccurs="unbounded" />
       <xs:element name='signToken' type='xs:string' />
-      <xs:element name='approvedOn' type='xs:date' />
+      <xs:element name='approvedOn' type="xs:dateTime" />
       <xs:element name='delegatedBy' type='xs:string' />
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="Delegation">
     <xs:sequence>
-      <xs:element name='id' type='xs:long' />
-      <xs:element name='validTo' type='xs:date' />
-      <xs:element name='delegatedFor' type='xs:string' />
-      <xs:element name='validFrom' type='xs:date' />
-      <xs:element name='delegateTo' type='xs:string' />
-      <xs:element name='role' type='xs:string' />
       <xs:element name='delegationKey' type='xs:long' />
+      <xs:element name='validTo' type='xs:dateTime' />
+      <xs:element name='delegatedFor' type='xs:string' />
+      <xs:element name='validFrom' type='xs:dateTime' />
+      <xs:element name='delegateTo' type='xs:string' />
+      <xs:element name='role' type='xs:string' />    
     </xs:sequence>
   </xs:complexType>
 
