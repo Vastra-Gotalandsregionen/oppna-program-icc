@@ -29,12 +29,13 @@
       <xs:import schemaLocation='SaveDelegationsResponder_1.0.xsd' namespace='urn:riv:authorization:delegation:SaveDelegationsResponder:1' />
       <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
       <xs:element name="delegationBlock" type="tjsr:DelegationBlock"></xs:element>
-      <xs:element name="delegations1" type="xs:string"></xs:element>
-      <xs:element name="delegations2" type="xs:string"></xs:element>
-      <xs:element name="delegations3" type="xs:string"></xs:element>
-      <xs:element name="delegations4" type="xs:string"></xs:element>
-      <xs:element name="delegations5" type="xs:string"></xs:element>
-      <xs:element name="delegations6" type="xs:string"></xs:element>
+      <xs:element name="delegationFor1" type="xs:string"></xs:element>
+      <xs:element name="delegationFor2" type="xs:string"></xs:element>
+      <xs:element name="delegationFor3" type="xs:string"></xs:element>
+      <xs:element name="delegationKey" type="xs:string"></xs:element>
+      <xs:element name="hasDelegation" type="tjsr:ForToRoleType"></xs:element>
+      <xs:element name="getDelegationsByUnit" type="tjsr:ForToRoleType"></xs:element>
+       
     </xs:schema>
   </wsdl:types>
 
@@ -51,42 +52,42 @@
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
       <wsdl:documentation>TBD</wsdl:documentation>
     </wsdl:part>
-    <wsdl:part name='parameters' element='tns:delegations1' />
+    <wsdl:part name='parameters' element='tns:delegationFor1' />
   </wsdl:message>
 
   <wsdl:message name='getActiveDelegationsRequest'>
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
       <wsdl:documentation>TBD</wsdl:documentation>
     </wsdl:part>
-    <wsdl:part name='parameters' element='tns:delegations2' />
+    <wsdl:part name='parameters' element='tns:delegationFor2' />
   </wsdl:message>
 
   <wsdl:message name='getInactiveDelegationsRequest'>
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
       <wsdl:documentation>TBD</wsdl:documentation>
     </wsdl:part>
-    <wsdl:part name='parameters' element='tns:delegations3' />
+    <wsdl:part name='parameters' element='tns:delegationFor3' />
   </wsdl:message>
 
   <wsdl:message name='getDelegationsByUnitAndRoleRequest'>
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
       <wsdl:documentation>TBD</wsdl:documentation>
     </wsdl:part>
-    <wsdl:part name='parameters' element='tns:delegations4' />
+    <wsdl:part name='parameters' element='tns:getDelegationsByUnit' />
   </wsdl:message>
 
   <wsdl:message name='getDelegationRequest'>
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
       <wsdl:documentation>TBD</wsdl:documentation>
     </wsdl:part>
-    <wsdl:part name='parameters' element='tns:delegations5' />
+    <wsdl:part name='parameters' element='tns:delegationKey' />
   </wsdl:message>
 
   <wsdl:message name='hasDelegationRequest'>
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
       <wsdl:documentation>TBD</wsdl:documentation>
     </wsdl:part>
-    <wsdl:part name='parameters' element='tns:delegations6' />
+    <wsdl:part name='parameters' element='tns:hasDelegation' />
   </wsdl:message>
 
   <!-- Message Respons -->
