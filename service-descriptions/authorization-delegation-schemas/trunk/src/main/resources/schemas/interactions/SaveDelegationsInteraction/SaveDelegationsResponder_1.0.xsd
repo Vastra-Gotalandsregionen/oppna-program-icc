@@ -16,13 +16,22 @@
   <xs:element name='getInactiveDelegationsResponse' type='tns:Delegations' />
   <xs:element name='getDelegationsByUnitAndRoleResponse' type='tns:Delegations' />
   <xs:element name='getDelegationResponse' type='tns:Delegations' />
-  <xs:element name='hasDelegationResponse' type='tns:Delegations' />
+  <xs:element name='hasDelegationResponse' type="xs:boolean" />
   <xs:complexType name='SaveDelegationsType'>
     <xs:sequence>
       <xs:element name='SomeElement' type='core:SomeElementType' />
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name='ForToRoleType'>
+    <xs:sequence>
+      <xs:element name='delegatedFor' type="xs:string" />
+      <xs:element name='delegatedTo' type="xs:string" />
+      <xs:element name='role' type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name='SaveDelegationsResponseType'>
     <xs:sequence>
       <xs:element name='ResultCode' type='tns:ResultCodeEnum' />
