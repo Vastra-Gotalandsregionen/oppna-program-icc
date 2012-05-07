@@ -1,52 +1,171 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--
-  Copyright 2010 Västra Götalandsregionen This library is free software; you can redistribute it and/or modify it
-  under the terms of version 2.1 of the GNU Lesser General Public License as published by the Free Software
-  Foundation. This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-  even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
-  Public License for more details. You should have received a copy of the GNU Lesser General Public License along
-  with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
-  02111-1307 USA
--->
-<wsdl:definitions name='SaveDelegationsInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tjsr='urn:riv:authorization:delegation:SaveDelegationsResponder:1' xmlns:tjsi='urn:riv:authorization:delegation:SaveDelegationsInitiator:1' xmlns:tns='urn:riv:authorization:delegation:SaveDelegations:1:rivtabp21' targetNamespace='urn:riv:authorization:delegation:SaveDelegations:1:rivtabp21' xmlns:itr='urn:riv:itintegration:registry:1'>
+<!-- Copyright 2010 Västra Götalandsregionen This library is free software; you can redistribute it and/or modify it 
+  under the terms of version 2.1 of the GNU Lesser General Public License as published by the Free Software Foundation. 
+  This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+  of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details. 
+  You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the 
+  Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
+<wsdl:definitions name='SaveDelegationsInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema'
+  xmlns:tjsr='urn:riv:authorization:delegation:SaveDelegationsResponder:1' xmlns:tjsi='urn:riv:authorization:delegation:SaveDelegationsInitiator:1'
+  xmlns:tns='urn:riv:authorization:delegation:SaveDelegations:1:rivtabp21' targetNamespace='urn:riv:authorization:delegation:SaveDelegations:1:rivtabp21'
+  xmlns:itr='urn:riv:itintegration:registry:1'>
   <xs:annotation>
     <xs:documentation>
-			 Tjänsteinteraktionens namn: SaveDelegationsInteraction
-			 Beskrivning: 
-			   TBD
-			 Revisioner: 
-			 Tjänstedomän: authorization:delegation
-			 Tjänsteinteraktionstyp: Fråga-Svar
-			 WS-profil: RIVTABP21
-			 Förvaltas av: Västra Götalandsregionen
+      Tjänsteinteraktionens namn: SaveDelegationsInteraction
+      Beskrivning:
+      TBD
+      Revisioner:
+      Tjänstedomän: authorization:delegation
+      Tjänsteinteraktionstyp: Fråga-Svar
+      WS-profil: RIVTABP21
+      Förvaltas av:
+      Västra Götalandsregionen
 			 </xs:documentation>
   </xs:annotation>
+
   <wsdl:types>
     <xs:schema targetNamespace='urn:riv:authorization:delegation:SaveDelegations:1:rivtabp21'>
       <xs:import schemaLocation='SaveDelegationsResponder_1.0.xsd' namespace='urn:riv:authorization:delegation:SaveDelegationsResponder:1' />
       <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
       <xs:element name="delegationBlock" type="tjsr:DelegationBlock"></xs:element>
+      <xs:element name="delegations1" type="xs:string"></xs:element>
+      <xs:element name="delegations2" type="xs:string"></xs:element>
+      <xs:element name="delegations3" type="xs:string"></xs:element>
+      <xs:element name="delegations4" type="xs:string"></xs:element>
+      <xs:element name="delegations5" type="xs:string"></xs:element>
+      <xs:element name="delegations6" type="xs:string"></xs:element>
     </xs:schema>
   </wsdl:types>
+
+  <!-- Message Requests -->
+
   <wsdl:message name='SaveDelegationsRequest'>
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
       <wsdl:documentation>TBD</wsdl:documentation>
     </wsdl:part>
     <wsdl:part name='parameters' element='tns:delegationBlock' />
   </wsdl:message>
+
+  <wsdl:message name='getDelegationsRequest'>
+    <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+      <wsdl:documentation>TBD</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name='parameters' element='tns:delegations1' />
+  </wsdl:message>
+
+  <wsdl:message name='getActiveDelegationsRequest'>
+    <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+      <wsdl:documentation>TBD</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name='parameters' element='tns:delegations2' />
+  </wsdl:message>
+
+  <wsdl:message name='getInactiveDelegationsRequest'>
+    <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+      <wsdl:documentation>TBD</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name='parameters' element='tns:delegations3' />
+  </wsdl:message>
+
+  <wsdl:message name='getDelegationsByUnitAndRoleRequest'>
+    <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+      <wsdl:documentation>TBD</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name='parameters' element='tns:delegations4' />
+  </wsdl:message>
+
+  <wsdl:message name='getDelegationRequest'>
+    <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+      <wsdl:documentation>TBD</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name='parameters' element='tns:delegations5' />
+  </wsdl:message>
+
+  <wsdl:message name='hasDelegationRequest'>
+    <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+      <wsdl:documentation>TBD</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name='parameters' element='tns:delegations6' />
+  </wsdl:message>
+
+  <!-- Message Respons -->
+
   <wsdl:message name='SaveDelegationsResponse'>
     <wsdl:part name='parameters' element='tjsr:SaveDelegationsResponse' />
   </wsdl:message>
+
+  <wsdl:message name='getDelegationsResponse'>
+    <wsdl:part name='parameters' element='tjsr:getDelegationsResponse' />
+  </wsdl:message>
+
+  <wsdl:message name='getActiveDelegationsResponse'>
+    <wsdl:part name='parameters' element='tjsr:getActiveDelegationsResponse' />
+  </wsdl:message>
+
+  <wsdl:message name='getInactiveDelegationsResponse'>
+    <wsdl:part name='parameters' element='tjsr:getInactiveDelegationsResponse' />
+  </wsdl:message>
+
+  <wsdl:message name='getDelegationsByUnitAndRoleResponse'>
+    <wsdl:part name='parameters' element='tjsr:getDelegationsByUnitAndRoleResponse' />
+  </wsdl:message>
+
+  <wsdl:message name='getDelegationResponse'>
+    <wsdl:part name='parameters' element='tjsr:getDelegationResponse' />
+  </wsdl:message>
+
+  <wsdl:message name='hasDelegationResponse'>
+    <wsdl:part name='parameters' element='tjsr:hasDelegationResponse' />
+  </wsdl:message>
+
+  <!-- Porttype -->
+
   <wsdl:portType name='SaveDelegationsResponderInterface'>
+
     <wsdl:operation name='SaveDelegations'>
       <wsdl:input message='tns:SaveDelegationsRequest' />
       <wsdl:output message='tns:SaveDelegationsResponse' />
     </wsdl:operation>
+
+    <wsdl:operation name='getDelegations'>
+      <wsdl:input message='tns:getDelegationsRequest' />
+      <wsdl:output message='tns:getDelegationsResponse' />
+    </wsdl:operation>
+
+    <wsdl:operation name='getActiveDelegations'>
+      <wsdl:input message='tns:getActiveDelegationsRequest' />
+      <wsdl:output message='tns:getActiveDelegationsResponse' />
+    </wsdl:operation>
+
+    <wsdl:operation name='getInactiveDelegations'>
+      <wsdl:input message='tns:getInactiveDelegationsRequest' />
+      <wsdl:output message='tns:getInactiveDelegationsResponse' />
+    </wsdl:operation>
+
+    <wsdl:operation name='getDelegationsByUnitAndRole'>
+      <wsdl:input message='tns:getDelegationsByUnitAndRoleRequest' />
+      <wsdl:output message='tns:getDelegationsByUnitAndRoleResponse' />
+    </wsdl:operation>
+
+    <wsdl:operation name='getDelegation'>
+      <wsdl:input message='tns:getDelegationRequest' />
+      <wsdl:output message='tns:getDelegationResponse' />
+    </wsdl:operation>
+
+    <wsdl:operation name='hasDelegation'>
+      <wsdl:input message='tns:hasDelegationRequest' />
+      <wsdl:output message='tns:hasDelegationResponse' />
+    </wsdl:operation>
+
   </wsdl:portType>
-  <wsdl:binding name='SaveDelegationsResponderBinding' type='tns:SaveDelegationsResponderInterface'>
+
+  <wsdl:binding name='DelegationService' type='tns:SaveDelegationsResponderInterface'>
     <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+
     <wsdl:operation name='SaveDelegations'>
-      <soap:operation soapAction='urn:riv:authorization:delegation:SaveDelegationsResponder:1:SaveDelegations' style='document' />
+      <soap:operation soapAction='urn:riv:authorization:delegation:SaveDelegationsResponder:1:SaveDelegations'
+        style='document' />
       <wsdl:input>
         <soap:header use='literal' message='tns:SaveDelegationsRequest' part='LogicalAddress' />
         <soap:body use='literal' parts='parameters' />
@@ -55,9 +174,83 @@
         <soap:body use='literal' />
       </wsdl:output>
     </wsdl:operation>
-  </wsdl:binding>
+
+    <wsdl:operation name='getDelegations'>
+      <soap:operation soapAction='urn:riv:authorization:delegation:SaveDelegationsResponder:1:getDelegations'
+        style='document' />
+      <wsdl:input>
+        <soap:header use='literal' message='tns:getDelegationsRequest' part='LogicalAddress' />
+        <soap:body use='literal' parts='parameters' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal' />
+      </wsdl:output>
+    </wsdl:operation>
+
+  <wsdl:operation name='getActiveDelegations'>
+    <soap:operation soapAction='urn:riv:authorization:delegation:SaveDelegationsResponder:1:getActiveDelegations'
+      style='document' />
+    <wsdl:input>
+      <soap:header use='literal' message='tns:getActiveDelegationsRequest' part='LogicalAddress' />
+      <soap:body use='literal' parts='parameters' />
+    </wsdl:input>
+    <wsdl:output>
+      <soap:body use='literal' />
+    </wsdl:output>
+  </wsdl:operation>
+
+  <wsdl:operation name='getInactiveDelegations'>
+    <soap:operation soapAction='urn:riv:authorization:delegation:SaveDelegationsResponder:1:getInactiveDelegations'
+      style='document' />
+    <wsdl:input>
+      <soap:header use='literal' message='tns:getInactiveDelegationsRequest' part='LogicalAddress' />
+      <soap:body use='literal' parts='parameters' />
+    </wsdl:input>
+    <wsdl:output>
+      <soap:body use='literal' />
+    </wsdl:output>
+  </wsdl:operation>
+
+  <wsdl:operation name='getDelegationsByUnitAndRole'>
+    <soap:operation soapAction='urn:riv:authorization:delegation:SaveDelegationsResponder:1:getDelegationsByUnitAndRole'
+      style='document' />
+    <wsdl:input>
+      <soap:header use='literal' message='tns:getDelegationsByUnitAndRoleRequest' part='LogicalAddress' />
+      <soap:body use='literal' parts='parameters' />
+    </wsdl:input>
+    <wsdl:output>
+      <soap:body use='literal' />
+    </wsdl:output>
+  </wsdl:operation>
+
+  <wsdl:operation name='getDelegation'>
+    <soap:operation soapAction='urn:riv:authorization:delegation:SaveDelegationsResponder:1:getDelegation'
+      style='document' />
+    <wsdl:input>
+      <soap:header use='literal' message='tns:getDelegationRequest' part='LogicalAddress' />
+      <soap:body use='literal' parts='parameters' />
+    </wsdl:input>
+    <wsdl:output>
+      <soap:body use='literal' />
+    </wsdl:output>
+  </wsdl:operation>
+
+  <wsdl:operation name='hasDelegation'>
+    <soap:operation soapAction='urn:riv:authorization:delegation:SaveDelegationsResponder:1:hasDelegation'
+      style='document' />
+    <wsdl:input>
+      <soap:header use='literal' message='tns:hasDelegationRequest' part='LogicalAddress' />
+      <soap:body use='literal' parts='parameters' />
+    </wsdl:input>
+    <wsdl:output>
+      <soap:body use='literal' />
+    </wsdl:output>
+  </wsdl:operation>
+  
+</wsdl:binding>
+
   <wsdl:service name='SaveDelegationsResponderService'>
-    <wsdl:port name='SaveDelegationsResponderPort' binding='tns:SaveDelegationsResponderBinding'>
+    <wsdl:port name='SaveDelegationsResponderPort' binding='tns:DelegationService'>
       <soap:address location='http://tempuri.org' />
     </wsdl:port>
   </wsdl:service>
