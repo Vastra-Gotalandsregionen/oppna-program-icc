@@ -5,8 +5,8 @@
   of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details. 
   You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the 
   Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
-<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:authorization:delegation:SaveDelegationsResponder:1'
-  xmlns:core='urn:riv:authorization:delegation:1' targetNamespace='urn:riv:authorization:delegation:SaveDelegationsResponder:1'
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:authorization:delegation:DelegationServiceResponder:1'
+  xmlns:core='urn:riv:authorization:delegation:1' targetNamespace='urn:riv:authorization:delegation:DelegationServiceResponder:1'
   elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
   <xs:import schemaLocation='../../core_components/authorization_delegation_1.0.xsd' namespace='urn:riv:authorization:delegation:1' />
   <xs:element name='SaveDelegations' type='tns:SaveDelegationsType' />
@@ -14,7 +14,7 @@
   <xs:element name='getDelegationsResponse' type='tns:Delegations' />
   <xs:element name='getActiveDelegationsResponse' type='tns:Delegations' />
   <xs:element name='getInactiveDelegationsResponse' type='tns:Delegations' />
-  <xs:element name='getDelegationsByUnitAndRoleResponse' type='tns:Delegations' />
+  <xs:element name='getDelegationsByRoleResponse' type='tns:Delegations' />
   <xs:element name='getDelegationResponse' type='tns:Delegations' />
   <xs:element name='hasDelegationResponse' type="xs:boolean" />
   <xs:complexType name='SaveDelegationsType'>
