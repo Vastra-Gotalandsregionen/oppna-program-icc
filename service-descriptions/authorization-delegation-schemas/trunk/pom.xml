@@ -1,129 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Copyright 2010 Västra Götalandsregionen This library is free software; you can redistribute it and/or modify it
-  under the terms of version 2.1 of the GNU Lesser General Public License as published by the Free Software
-  Foundation. This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-  even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General
-  Public License for more details. You should have received a copy of the GNU Lesser General Public License along
-  with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
-  02111-1307 USA
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<!-- Copyright 2010 Västra Götalandsregionen This library is free software; you can redistribute it and/or modify it 
+  under the terms of version 2.1 of the GNU Lesser General Public License as published by the Free Software Foundation. 
+  This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+  of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details. 
+  You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the 
+  Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>se.vgregion.icc</groupId>
-		<artifactId>icc-pom-open</artifactId>
-		<version>1.1.5</version>
-	</parent>
+  <parent>
+    <groupId>se.vgregion.icc</groupId>
+    <artifactId>icc-pom-open</artifactId>
+    <version>1.1.5</version>
+  </parent>
 
-	<groupId>se.vgregion.icc.sd.authorization</groupId>
-	<artifactId>authorization-delegation-schemas</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
-	<name>authorization-delegation-schemas</name>
+  <groupId>se.vgregion.icc.sd.authorization</groupId>
+  <artifactId>authorization-delegation-schemas</artifactId>
+  <version>1.0.3-SNAPSHOT</version>
+  <name>authorization-delegation-schemas</name>
 
-	<scm>
-		<connection>scm:svn://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/trunk</connection>	
-		<developerConnection>scm:svn:https://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/trunk</developerConnection>	
-		<url>http://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/trunk</url>	
-	</scm>
+  <scm>
+    <connection>scm:svn://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/trunk</connection>
+    <developerConnection>scm:svn:https://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/trunk</developerConnection>
+    <url>http://oppna-program-icc.googlecode.com/svn/service-descriptions/authorization-delegation-schemas/trunk</url>
+  </scm>
 
-	<properties>
-		<!-- Properties for generating code from WSDL and XML Schemas (JAX-WS + JAXB) -->
-		<schema.path>${basedir}/src/main/resources/schemas</schema.path>
-		<schema.gen.src.dir>${project.build.directory}/generated-sources/cxf</schema.gen.src.dir>
-	</properties>
+  <properties>
+    <!-- Properties for generating code from WSDL and XML Schemas (JAX-WS + JAXB) -->
+    <schema.path>${basedir}/src/main/resources/schemas</schema.path>
+    <schema.gen.src.dir>${project.build.directory}/generated-sources/cxf</schema.gen.src.dir>
+  </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.soitoolkit.commons.poms</groupId>
-			<artifactId>soitoolkit-schemas-jax-ws-dependencies</artifactId>
-			<version>${soitoolkit.version}</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
-	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-codegen-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>ws.generate</id>
-						<phase>generate-sources</phase>
-						<configuration>
-							<sourceRoot>${schema.gen.src.dir}</sourceRoot>
-							<wsdlOptions>
-								<wsdloption>
-									<wsdl>${schema.path}/interactions/DelegationService/DelegationService_1.0_RIVTABP21.wsdl</wsdl>
-									<extraargs>
-										<extraarg>-validate</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>urn:riv:authorization:delegation:DelegationServiceResponder:1=se.riv.authorization.delegation.delegationserviceresponder.v1</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>urn:riv:authorization:delegation:SaveDelegationsInitiator:1=se.riv.authorization.delegation.savedelegationsinitiator.v1</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>urn:riv:authorization:delegation:SaveDelegations:1:rivtabp21=se.riv.authorization.delegation.savedelegations.v1.rivtabp21</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>urn:riv:authorization:delegation:1=se.riv.authorization.delegation.v1</extraarg>
-									</extraargs>
-								</wsdloption>
-<!--
-								<wsdlOption>
-									<wsdl>${schema.path}/se/vgregion/icc/sd/portal/jaxb-gen-only.wsdl</wsdl>
-									<extraargs>
-										<extraarg>-validate</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>http://portal.vgregion.se/createuser=se.vgregion.portal.createuser</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>http://portal.vgregion.se/activateuser=se.vgregion.portal.activateuser</extraarg>
-										<extraarg>-p</extraarg>
-										<extraarg>http://portal.vgregion.se/inviteuser=se.vgregion.portal.inviteuser</extraarg>										
-									</extraargs>
-								</wsdlOption>
--->								
-							</wsdlOptions>
-						</configuration>
-						<goals>
-							<goal>wsdl2java</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+  <dependencies>
+    <dependency>
+      <groupId>org.soitoolkit.commons.poms</groupId>
+      <artifactId>soitoolkit-schemas-jax-ws-dependencies</artifactId>
+      <version>${soitoolkit.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 
-			<plugin>
-				<!-- Create a zip-file only containing wsdl & xsd files, i.e. no JAX-WS/JAXB-generated artifacts, for example for a Microsoft .Net C# app -->
-				<artifactId>maven-assembly-plugin</artifactId>
-				<dependencies>
-					<dependency>
-						<!-- Plugin-dependency to a shared assembly-descriptor that creates the zip-file -->
-						<groupId>org.soitoolkit.commons.poms</groupId>
-						<artifactId>soitoolkit-assembly-descriptors</artifactId>
-						<version>${soitoolkit.version}</version>
-					</dependency>
-				</dependencies>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<descriptors>
-								<descriptor>schema-assembly-descriptor.xml</descriptor>
-							</descriptors>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-codegen-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>ws.generate</id>
+            <phase>generate-sources</phase>
+            <configuration>
+              <sourceRoot>${schema.gen.src.dir}</sourceRoot>
+              <wsdlOptions>
+                <wsdloption>
+                  <wsdl>${schema.path}/interactions/GetActiveDelegationsInteraction/GetActiveDelegationsInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetActiveDelegationsResponder:1=se.riv.authorization.delegation.getactivedelegationsresponder.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetActiveDelegationsInitiator:1=se.riv.authorization.delegation.getactivedelegationsinitiator.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetActiveDelegations:1:rivtabp21=se.riv.authorization.delegation.getactivedelegations.v1.rivtabp21</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:1=se.riv.authorization.delegation.v1</extraarg>
+                  </extraargs>
+                </wsdloption>
+                <wsdloption>
+                  <wsdl>${schema.path}/interactions/GetDelegationInteraction/GetDelegationInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetDelegationResponder:1=se.riv.authorization.delegation.getdelegationresponder.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetDelegationInitiator:1=se.riv.authorization.delegation.getdelegationinitiator.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetDelegation:1:rivtabp21=se.riv.authorization.delegation.getdelegation.v1.rivtabp21</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:1=se.riv.authorization.delegation.v1</extraarg>
+                  </extraargs>
+                </wsdloption>
+                <wsdloption>
+                  <wsdl>${schema.path}/interactions/GetDelegationsbyUnitAndRoleInteraction/GetDelegationsbyUnitAndRoleInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetDelegationsbyUnitAndRoleResponder:1=se.riv.authorization.delegation.getdelegationsbyunitandroleresponder.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetDelegationsbyUnitAndRoleInitiator:1=se.riv.authorization.delegation.getdelegationsbyunitandroleinitiator.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetDelegationsbyUnitAndRole:1:rivtabp21=se.riv.authorization.delegation.getdelegationsbyunitandrole.v1.rivtabp21</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:1=se.riv.authorization.delegation.v1</extraarg>
+                  </extraargs>
+                </wsdloption>
+                <wsdloption>
+                  <wsdl>${schema.path}/interactions/GetDelegationsInteraction/GetDelegationsInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetDelegationsResponder:1=se.riv.authorization.delegation.getdelegationsresponder.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetDelegationsInitiator:1=se.riv.authorization.delegation.getdelegationsinitiator.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetDelegations:1:rivtabp21=se.riv.authorization.delegation.getdelegations.v1.rivtabp21</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:1=se.riv.authorization.delegation.v1</extraarg>
+                  </extraargs>
+                </wsdloption>
+                <wsdloption>
+                  <wsdl>${schema.path}/interactions/GetInactiveDelegationsInteraction/GetInactiveDelegationsInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetInactiveDelegationsResponder:1=se.riv.authorization.delegation.getinactivedelegationsresponder.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetInactiveDelegationsInitiator:1=se.riv.authorization.delegation.getinactivedelegationsinitiator.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:GetInactiveDelegations:1:rivtabp21=se.riv.authorization.delegation.getinactivedelegations.v1.rivtabp21</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:1=se.riv.authorization.delegation.v1</extraarg>
+                  </extraargs>
+                </wsdloption>
+                <wsdloption>
+                  <wsdl>${schema.path}/interactions/HasDelegationInteraction/HasDelegationInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:HasDelegationResponder:1=se.riv.authorization.delegation.hasdelegationresponder.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:HasDelegationInitiator:1=se.riv.authorization.delegation.hasdelegationinitiator.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:HasDelegation:1:rivtabp21=se.riv.authorization.delegation.hasdelegation.v1.rivtabp21</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:1=se.riv.authorization.delegation.v1</extraarg>
+                  </extraargs>
+                </wsdloption>
+                <wsdloption>
+                  <wsdl>${schema.path}/interactions/SaveDelegationsInteraction/SaveDelegationsInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:SaveDelegationsResponder:1=se.riv.authorization.delegation.savedelegationsresponder.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:SaveDelegationsInitiator:1=se.riv.authorization.delegation.savedelegationsinitiator.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:SaveDelegations:1:rivtabp21=se.riv.authorization.delegation.savedelegations.v1.rivtabp21</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:1=se.riv.authorization.delegation.v1</extraarg>
+                  </extraargs>
+                </wsdloption>
+                <!-- <wsdlOption> <wsdl>${schema.path}/se/vgregion/icc/sd/portal/jaxb-gen-only.wsdl</wsdl> <extraargs> 
+                  <extraarg>-validate</extraarg> <extraarg>-p</extraarg> <extraarg>http://portal.vgregion.se/createuser=se.vgregion.portal.createuser</extraarg> 
+                  <extraarg>-p</extraarg> <extraarg>http://portal.vgregion.se/activateuser=se.vgregion.portal.activateuser</extraarg> 
+                  <extraarg>-p</extraarg> <extraarg>http://portal.vgregion.se/inviteuser=se.vgregion.portal.inviteuser</extraarg> </extraargs> 
+                  </wsdlOption> -->
+              </wsdlOptions>
+            </configuration>
+            <goals>
+              <goal>wsdl2java</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
-		</plugins>
-	</build>
+      <plugin>
+        <!-- Create a zip-file only containing wsdl & xsd files, i.e. no JAX-WS/JAXB-generated artifacts, for example 
+          for a Microsoft .Net C# app -->
+        <artifactId>maven-assembly-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <!-- Plugin-dependency to a shared assembly-descriptor that creates the zip-file -->
+            <groupId>org.soitoolkit.commons.poms</groupId>
+            <artifactId>soitoolkit-assembly-descriptors</artifactId>
+            <version>${soitoolkit.version}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>schema-assembly-descriptor.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
 
 </project>

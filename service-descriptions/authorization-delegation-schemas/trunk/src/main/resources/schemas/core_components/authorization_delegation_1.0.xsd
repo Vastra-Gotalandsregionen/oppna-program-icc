@@ -9,10 +9,34 @@
   02111-1307 USA
 -->
 <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:authorization:delegation:1' targetNamespace='urn:riv:authorization:delegation:1' elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
-  <xs:complexType name='SomeElementType'>
+  
+  <xs:complexType name="DelegationBlockType">
     <xs:sequence>
-      <xs:element name='SomeElement' type='xs:string' />
+      <xs:element name='delegations' type="tns:DelegationType" maxOccurs="unbounded" />
+      <xs:element name='signToken' type='xs:string' />
+      <xs:element name='approvedOn' type="xs:dateTime" />
+      <xs:element name='delegatedBy' type='xs:string' />
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="DelegationType">
+    <xs:sequence>
+      <xs:element name='delegationKey' type='xs:long' />
+      <xs:element name='validTo' type='xs:dateTime' />
+      <xs:element name='delegatedFor' type='xs:string' />
+      <xs:element name='validFrom' type='xs:dateTime' />
+      <xs:element name='delegateTo' type='xs:string' />
+      <xs:element name='role' type='xs:string' />  
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />  
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DelegationsType">
+    <xs:sequence>
+      <xs:element name="content" type="tns:DelegationType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
+  
 </xs:schema>
