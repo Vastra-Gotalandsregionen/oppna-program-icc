@@ -23,11 +23,13 @@
   <xs:complexType name="DelegationType">
     <xs:sequence>
       <xs:element name='delegationKey' type='xs:long' />
+      <xs:element name='validFrom' type='xs:dateTime' />
       <xs:element name='validTo' type='xs:dateTime' />
       <xs:element name='delegatedFor' type='xs:string' />
-      <xs:element name='validFrom' type='xs:dateTime' />
+      <xs:element name='delegatedForEmail' type='xs:string' />
       <xs:element name='delegateTo' type='xs:string' />
       <xs:element name='role' type='xs:string' />  
+      <xs:element name='information' type='xs:string' />  
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />  
     </xs:sequence>
   </xs:complexType>
