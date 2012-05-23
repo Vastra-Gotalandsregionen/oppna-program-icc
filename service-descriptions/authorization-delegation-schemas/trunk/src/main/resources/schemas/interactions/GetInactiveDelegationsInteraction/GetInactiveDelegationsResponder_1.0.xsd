@@ -23,6 +23,7 @@
   <xs:element name='GetInactiveDelegationsResponse' type='tns:GetInactiveDelegationsResponseType' />
   <xs:complexType name='GetInactiveDelegationsType'>
     <xs:sequence>
+      <xs:element name="ticket" type="xs:string"></xs:element>
       <xs:element name="delegationFor" type="xs:string"></xs:element>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
