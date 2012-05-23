@@ -23,6 +23,7 @@
   <xs:element name='SaveDelegationsResponse' type='tns:SaveDelegationsResponseType' />
   <xs:complexType name='SaveDelegationsType'>
     <xs:sequence>
+      <xs:element name="ticket" type="xs:string"></xs:element>
       <xs:element name='DelegationBlockType' type="core:DelegationBlockType" />
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
