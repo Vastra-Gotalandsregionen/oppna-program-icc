@@ -14,7 +14,6 @@
   <xs:element name='GetDelegationsbyUnitAndRoleResponse' type='tns:GetDelegationsbyUnitAndRoleResponseType' />
   <xs:complexType name='GetDelegationsbyUnitAndRoleType'>
     <xs:sequence>
-      <xs:element name="ticket" type="xs:string"></xs:element>
       <xs:element name='delegatedFor' type="xs:string" />
       <xs:element name='delegatedTo' type="xs:string" />
       <xs:element name='role' type="xs:string" />

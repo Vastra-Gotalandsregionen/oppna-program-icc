@@ -14,7 +14,6 @@
   <xs:element name='GetDelegationResponse' type='tns:GetDelegationResponseType' />
   <xs:complexType name='GetDelegationType'>
     <xs:sequence>
-      <xs:element name="ticket" type="xs:string"></xs:element>
       <xs:element name="delegationKey" type="xs:string"></xs:element>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
