@@ -173,16 +173,16 @@
                   </extraargs>
                 </wsdloption>
                 <wsdloption>
-                  <wsdl>${schema.path}/interactions/GetTicketInteraction/GetTicketInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <wsdl>${schema.path}/interactions/RemoveDelegationInteraction/RemoveDelegationInteraction_1.0_RIVTABP21.wsdl</wsdl>
                   <extraargs>
                     <extraarg>-p</extraarg>
                     <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:authorization:delegation:GetTicketResponder:1=se.riv.authorization.delegation.getticketresponder.v1</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:RemoveDelegationResponder:1=se.riv.authorization.delegation.removedelegationresponder.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:authorization:delegation:GetTicketInitiator:1=se.riv.authorization.delegation.getticketinitiator.v1</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:RemoveDelegationInitiator:1=se.riv.authorization.delegation.removedelegationinitiator.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:authorization:delegation:GetTicket:1:rivtabp21=se.riv.authorization.delegation.getticket.v1.rivtabp21</extraarg>
+                    <extraarg>urn:riv:authorization:delegation:RemoveDelegation:1:rivtabp21=se.riv.authorization.delegation.removedelegation.v1.rivtabp21</extraarg>
                     <extraarg>-p</extraarg>
                     <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
                     <extraarg>-p</extraarg>

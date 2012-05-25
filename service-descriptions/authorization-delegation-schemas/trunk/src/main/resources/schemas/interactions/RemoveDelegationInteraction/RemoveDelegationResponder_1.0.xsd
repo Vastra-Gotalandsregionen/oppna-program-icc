@@ -6,21 +6,21 @@
   by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, 
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing 
   permissions and limitations under the License. -->
-<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:authorization:delegation:GetTicketResponder:1'
-  xmlns:core='urn:riv:authorization:delegation:1' targetNamespace='urn:riv:authorization:delegation:GetTicketResponder:1'
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:authorization:delegation:RemoveDelegationResponder:1'
+  xmlns:core='urn:riv:authorization:delegation:1' targetNamespace='urn:riv:authorization:delegation:RemoveDelegationResponder:1'
   elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
   <xs:import schemaLocation='../../core_components/authorization_delegation_1.0.xsd' namespace='urn:riv:authorization:delegation:1' />
-  <xs:element name='GetTicket' type='tns:GetTicketType' />
-  <xs:element name='GetTicketResponse' type='tns:GetTicketResponseType' />
-  <xs:complexType name='GetTicketType'>
+  <xs:element name='RemoveDelegation' type='tns:RemoveDelegationType' />
+  <xs:element name='RemoveDelegationResponse' type='tns:RemoveDelegationResponseType' />
+  <xs:complexType name='RemoveDelegationType'>
     <xs:sequence>
-      <xs:element name="serviceId" type="xs:string"></xs:element>
+      <xs:element name='delegationKey' type="xs:string" />
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name='GetTicketResponseType'>
+  <xs:complexType name='RemoveDelegationResponseType'>
     <xs:sequence>
-      <xs:element name='ticket' type="xs:string" />
+      <xs:element name='ResultCode' type='tns:ResultCodeEnum' />
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>

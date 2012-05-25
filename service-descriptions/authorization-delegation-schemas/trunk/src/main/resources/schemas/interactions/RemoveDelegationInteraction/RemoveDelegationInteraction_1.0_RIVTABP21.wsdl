@@ -17,12 +17,12 @@
  specific language governing permissions and limitations
  under the License.
  -->		
-<wsdl:definitions name='GetTicketInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tjsr='urn:riv:authorization:delegation:GetTicketResponder:1' xmlns:tjsi='urn:riv:authorization:delegation:GetTicketInitiator:1' xmlns:tns='urn:riv:authorization:delegation:GetTicket:1:rivtabp21' targetNamespace='urn:riv:authorization:delegation:GetTicket:1:rivtabp21' xmlns:itr='urn:riv:itintegration:registry:1'>
+<wsdl:definitions name='RemoveDelegationInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tjsr='urn:riv:authorization:delegation:RemoveDelegationResponder:1' xmlns:tjsi='urn:riv:authorization:delegation:RemoveDelegationInitiator:1' xmlns:tns='urn:riv:authorization:delegation:RemoveDelegation:1:rivtabp21' targetNamespace='urn:riv:authorization:delegation:RemoveDelegation:1:rivtabp21' xmlns:itr='urn:riv:itintegration:registry:1'>
   <xs:annotation>
     <xs:documentation>
-			 Tjänsteinteraktionens namn: GetTicketInteraction
+			 Tjänsteinteraktionens namn: RemoveDelegationInteraction
 			 Beskrivning: 
-			   TBD
+			   TBD 
 			 Revisioner: 
 			 Tjänstedomän: authorization:delegation
 			 Tjänsteinteraktionstyp: Fråga-Svar
@@ -31,32 +31,32 @@
 			 </xs:documentation>
   </xs:annotation>
   <wsdl:types>
-    <xs:schema targetNamespace='urn:riv:authorization:delegation:GetTicket:1:rivtabp21'>
-      <xs:import schemaLocation='GetTicketResponder_1.0.xsd' namespace='urn:riv:authorization:delegation:GetTicketResponder:1' />
+    <xs:schema targetNamespace='urn:riv:authorization:delegation:RemoveDelegation:1:rivtabp21'>
+      <xs:import schemaLocation='RemoveDelegationResponder_1.0.xsd' namespace='urn:riv:authorization:delegation:RemoveDelegationResponder:1' />
       <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name='GetTicketRequest'>
+  <wsdl:message name='RemoveDelegationRequest'>
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
       <wsdl:documentation>The organisation number of the receiving unit</wsdl:documentation>
     </wsdl:part>
-    <wsdl:part name='parameters' element='tjsr:GetTicket' />
+    <wsdl:part name='parameters' element='tjsr:RemoveDelegation' />
   </wsdl:message>
-  <wsdl:message name='GetTicketResponse'>
-    <wsdl:part name='parameters' element='tjsr:GetTicketResponse' />
+  <wsdl:message name='RemoveDelegationResponse'>
+    <wsdl:part name='parameters' element='tjsr:RemoveDelegationResponse' />
   </wsdl:message>
-  <wsdl:portType name='GetTicketResponderInterface'>
-    <wsdl:operation name='GetTicket'>
-      <wsdl:input message='tns:GetTicketRequest' />
-      <wsdl:output message='tns:GetTicketResponse' />
+  <wsdl:portType name='RemoveDelegationResponderInterface'>
+    <wsdl:operation name='RemoveDelegation'>
+      <wsdl:input message='tns:RemoveDelegationRequest' />
+      <wsdl:output message='tns:RemoveDelegationResponse' />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name='GetTicketResponderBinding' type='tns:GetTicketResponderInterface'>
+  <wsdl:binding name='RemoveDelegationResponderBinding' type='tns:RemoveDelegationResponderInterface'>
     <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
-    <wsdl:operation name='GetTicket'>
-      <soap:operation soapAction='urn:riv:authorization:delegation:GetTicketResponder:1:GetTicket' style='document' />
+    <wsdl:operation name='RemoveDelegation'>
+      <soap:operation soapAction='urn:riv:authorization:delegation:RemoveDelegationResponder:1:RemoveDelegation' style='document' />
       <wsdl:input>
-        <soap:header use='literal' message='tns:GetTicketRequest' part='LogicalAddress' />
+        <soap:header use='literal' message='tns:RemoveDelegationRequest' part='LogicalAddress' />
         <soap:body use='literal' parts='parameters' />
       </wsdl:input>
       <wsdl:output>
@@ -64,8 +64,8 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name='GetTicketResponderService'>
-    <wsdl:port name='GetTicketResponderPort' binding='tns:GetTicketResponderBinding'>
+  <wsdl:service name='RemoveDelegationResponderService'>
+    <wsdl:port name='RemoveDelegationResponderPort' binding='tns:RemoveDelegationResponderBinding'>
       <soap:address location='http://tempuri.org' />
     </wsdl:port>
   </wsdl:service>
