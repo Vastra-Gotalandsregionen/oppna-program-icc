@@ -16,7 +16,7 @@
  KIND, either express or implied. See the License for the
  specific language governing permissions and limitations
  under the License.
- -->		
+ -->	
 <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:authorization:delegation:GetInactiveDelegationsResponder:1' xmlns:core='urn:riv:authorization:delegation:1' targetNamespace='urn:riv:authorization:delegation:GetInactiveDelegationsResponder:1' elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
   <xs:import schemaLocation='../../core_components/authorization_delegation_1.0.xsd' namespace='urn:riv:authorization:delegation:1' />
   <xs:element name='GetInactiveDelegations' type='tns:GetInactiveDelegationsType' />
