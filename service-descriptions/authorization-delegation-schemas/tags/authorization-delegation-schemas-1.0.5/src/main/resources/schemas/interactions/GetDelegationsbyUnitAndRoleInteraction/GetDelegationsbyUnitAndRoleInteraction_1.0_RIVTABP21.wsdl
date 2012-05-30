@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Västra Götalandsregionen licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<wsdl:definitions name='GetDelegationsbyUnitAndRoleInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tjsr='urn:riv:authorization:delegation:GetDelegationsbyUnitAndRoleResponder:1' xmlns:tjsi='urn:riv:authorization:delegation:GetDelegationsbyUnitAndRoleInitiator:1' xmlns:tns='urn:riv:authorization:delegation:GetDelegationsbyUnitAndRole:1:rivtabp21' targetNamespace='urn:riv:authorization:delegation:GetDelegationsbyUnitAndRole:1:rivtabp21' xmlns:itr='urn:riv:itintegration:registry:1'>
+  <xs:annotation>
+    <xs:documentation>
+			 Tjänsteinteraktionens namn: GetDelegationsbyUnitAndRoleInteraction
+			 Beskrivning: 
+			   TBD
+			 Revisioner: 
+			 Tjänstedomän: authorization:delegation
+			 Tjänsteinteraktionstyp: Fråga-Svar
+			 WS-profil: RIVTABP21
+			 Förvaltas av: Västra Götalandsregionen
+			 </xs:documentation>
+  </xs:annotation>
+  <wsdl:types>
+    <xs:schema targetNamespace='urn:riv:authorization:delegation:GetDelegationsbyUnitAndRole:1:rivtabp21'>
+      <xs:import schemaLocation='GetDelegationsbyUnitAndRoleResponder_1.0.xsd' namespace='urn:riv:authorization:delegation:GetDelegationsbyUnitAndRoleResponder:1' />
+      <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name='GetDelegationsbyUnitAndRoleRequest'>
+    <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+      <wsdl:documentation>The organisation number of the receiving unit</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name='parameters' element='tjsr:GetDelegationsbyUnitAndRole' />
+  </wsdl:message>
+  <wsdl:message name='GetDelegationsbyUnitAndRoleResponse'>
+    <wsdl:part name='parameters' element='tjsr:GetDelegationsbyUnitAndRoleResponse' />
+  </wsdl:message>
+  <wsdl:portType name='GetDelegationsbyUnitAndRoleResponderInterface'>
+    <wsdl:operation name='GetDelegationsbyUnitAndRole'>
+      <wsdl:input message='tns:GetDelegationsbyUnitAndRoleRequest' />
+      <wsdl:output message='tns:GetDelegationsbyUnitAndRoleResponse' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name='GetDelegationsbyUnitAndRoleResponderBinding' type='tns:GetDelegationsbyUnitAndRoleResponderInterface'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='GetDelegationsbyUnitAndRole'>
+      <soap:operation soapAction='urn:riv:authorization:delegation:GetDelegationsbyUnitAndRoleResponder:1:GetDelegationsbyUnitAndRole' style='document' />
+      <wsdl:input>
+        <soap:header use='literal' message='tns:GetDelegationsbyUnitAndRoleRequest' part='LogicalAddress' />
+        <soap:body use='literal' parts='parameters' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal' />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name='GetDelegationsbyUnitAndRoleResponderService'>
+    <wsdl:port name='GetDelegationsbyUnitAndRoleResponderPort' binding='tns:GetDelegationsbyUnitAndRoleResponderBinding'>
+      <soap:address location='http://tempuri.org' />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
