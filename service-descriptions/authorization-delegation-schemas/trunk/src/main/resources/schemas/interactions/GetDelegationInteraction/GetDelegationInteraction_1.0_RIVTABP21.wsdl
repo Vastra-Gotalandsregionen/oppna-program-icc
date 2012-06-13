@@ -22,7 +22,7 @@
     <xs:documentation>
 			 Tjänsteinteraktionens namn: GetDelegationInteraction
 			 Beskrivning: 
-			   TBD
+			   Använder delegeringsnyckeln i anropet för att returnera motsvarande delegeringspost.
 			 Revisioner: 
 			 Tjänstedomän: authorization:delegation
 			 Tjänsteinteraktionstyp: Fråga-Svar

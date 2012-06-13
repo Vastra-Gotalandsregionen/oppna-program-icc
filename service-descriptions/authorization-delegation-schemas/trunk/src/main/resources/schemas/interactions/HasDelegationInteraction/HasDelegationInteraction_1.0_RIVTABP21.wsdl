@@ -22,7 +22,7 @@
     <xs:documentation>
 			 Tjänsteinteraktionens namn: HasDelegationInteraction
 			 Beskrivning: 
-			   TBD
+			   Anrop som efterlämnar ett booleanvärde signifikerande för hurvida en delegering för en viss enhet, roll och målperson existerar. 
 			 Revisioner: 
 			 Tjänstedomän: authorization:delegation
 			 Tjänsteinteraktionstyp: Fråga-Svar

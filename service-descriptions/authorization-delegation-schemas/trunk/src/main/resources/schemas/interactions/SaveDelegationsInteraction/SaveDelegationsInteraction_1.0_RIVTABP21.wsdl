@@ -22,7 +22,7 @@
     <xs:documentation>
 			 Tjänsteinteraktionens namn: SaveDelegationsInteraction
 			 Beskrivning: 
-			   TBD
+			   Sparar ändringar eller helt ny delegering i tjänsten. Om en delegeringsnyckel skickas med i anropet indikerar detta att en uppdatering ska göras av en befintlig post.
 			 Revisioner: 
 			 Tjänstedomän: authorization:delegation
 			 Tjänsteinteraktionstyp: Fråga-Svar
