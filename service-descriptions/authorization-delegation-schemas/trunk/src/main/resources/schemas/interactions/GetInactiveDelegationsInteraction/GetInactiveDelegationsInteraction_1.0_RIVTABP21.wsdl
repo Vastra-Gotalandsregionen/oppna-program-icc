@@ -22,7 +22,7 @@
     <xs:documentation>
 			 Tjänsteinteraktionens namn: GetInactiveDelegationsInteraction
 			 Beskrivning: 
-			   TBD
+			   Hämtar delegeringar som inte längre är aktiva (vars till-och-med datum passerat). Använder nyckel för delegatedFor (för vem delegeringen är gjord) för att avgränsa returvärdena.
 			 Revisioner: 
 			 Tjänstedomän: authorization:delegation
 			 Tjänsteinteraktionstyp: Fråga-Svar

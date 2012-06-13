@@ -22,7 +22,7 @@
     <xs:documentation>
 			 Tjänsteinteraktionens namn: GetDelegationsInteraction
 			 Beskrivning: 
-			   TBD
+			   Slår upp och returnerar en lista av delegeringar med en viss 'delegatedFor' (vems roll som delegeras).
 			 Revisioner: 
 			 Tjänstedomän: authorization:delegation
 			 Tjänsteinteraktionstyp: Fråga-Svar

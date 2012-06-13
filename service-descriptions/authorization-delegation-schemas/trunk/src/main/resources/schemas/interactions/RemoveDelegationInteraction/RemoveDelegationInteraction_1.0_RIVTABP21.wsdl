@@ -22,7 +22,7 @@
     <xs:documentation>
 			 Tjänsteinteraktionens namn: RemoveDelegationInteraction
 			 Beskrivning: 
-			   TBD 
+			   Mottar delegeringsnyckel och raderar post med motsvarande värde. 
 			 Revisioner: 
 			 Tjänstedomän: authorization:delegation
 			 Tjänsteinteraktionstyp: Fråga-Svar

@@ -22,7 +22,7 @@
     <xs:documentation>
 			 Tjänsteinteraktionens namn: GetDelegationsbyUnitAndRoleInteraction
 			 Beskrivning: 
-			   TBD
+			   Hämtar delegering baserat på enhet och roll.
 			 Revisioner: 
 			 Tjänstedomän: authorization:delegation
 			 Tjänsteinteraktionstyp: Fråga-Svar

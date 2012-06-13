@@ -22,11 +22,7 @@
     <xs:documentation>
 			 Tjänsteinteraktionens namn: GetActiveDelegationsInteraction
 			 Beskrivning: 
-			   TBD
-			 Revisioner: 
-			 Tjänstedomän: authorization:delegation
-			 Tjänsteinteraktionstyp: Fråga-Svar
-			 WS-profil: RIVTABP21
+			   Hämtar aktiva delegeringar med hjälp av en uppsättning parametrar. 
 			 Förvaltas av: Västra Götalandsregionen
 			 </xs:documentation>
   </xs:annotation>
