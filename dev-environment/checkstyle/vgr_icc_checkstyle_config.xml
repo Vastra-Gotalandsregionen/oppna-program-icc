@@ -12,6 +12,7 @@
   <property name="severity" value="warning"/>
   <module name="TreeWalker">
     <property name="tabWidth" value="4"/>
+    <module name="FileContentsHolder"/>
     <module name="JavadocMethod">
       <property name="allowUndeclaredRTE" value="true"/>
       <property name="allowMissingPropertyJavadoc" value="true"/>
@@ -101,4 +102,5 @@
     <property name="message" value="Line has trailing spaces."/>
     <property name="fileExtensions" value="java"/>
   </module>
+  <module name="SuppressionCommentFilter"/>
 </module>
