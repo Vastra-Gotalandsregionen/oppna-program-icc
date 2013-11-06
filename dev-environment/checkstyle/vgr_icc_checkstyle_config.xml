@@ -5,7 +5,7 @@
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
 <!--
-    Checkstyle-Configuration: VGR CheckStyle
+    Checkstyle-Configuration: VGR ICC CheckStyle Local Copy
     Description: none
 -->
 <module name="Checker">
@@ -14,6 +14,7 @@
     <property name="tabWidth" value="4"/>
     <module name="FileContentsHolder"/>
     <module name="JavadocMethod">
+      <property name="scope" value="package"/>
       <property name="allowUndeclaredRTE" value="true"/>
       <property name="allowMissingPropertyJavadoc" value="true"/>
       <property name="suppressLoadErrors" value="true"/>
@@ -93,15 +94,20 @@
     <module name="TodoComment"/>
     <module name="UpperEll"/>
     <module name="MissingOverride"/>
-    <module name="JavadocVariable"/>
+    <module name="JavadocVariable">
+      <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+    </module>
   </module>
   <module name="Translation"/>
   <module name="FileLength"/>
   <module name="FileTabCharacter"/>
   <module name="RegexpSingleline">
+    <property name="severity" value="ignore"/>
     <property name="format" value="(?&lt;!\*)\s+$|\*\s\s+$"/>
     <property name="message" value="Line has trailing spaces."/>
     <property name="fileExtensions" value="java"/>
+    <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
   </module>
   <module name="SuppressionCommentFilter"/>
 </module>
