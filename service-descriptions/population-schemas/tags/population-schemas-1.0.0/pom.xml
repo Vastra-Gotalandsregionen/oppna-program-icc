@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOING!
+[soi-toolkit.gen.version=0.6.0]
+[soi-toolkit.gen.type=schemas]
+[soi-toolkit.gen.createDate=2013-02-27T09:09:44.735+01:00]
+[soi-toolkit.gen.artifactId=population]
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+  
+	<parent>
+		<groupId>se.vgregion.icc</groupId>
+		<artifactId>icc-pom</artifactId>
+		<version>1.2.1</version>
+	</parent>
+
+	<groupId>se.vgregion.icc.sd.population</groupId>
+	<artifactId>population-schemas</artifactId>
+	<version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>population-schemas</name>
+
+	<scm>
+		<connection>scm:svn:svn://svn.vgregion.se/vgr/icc/service-descriptions/population-schemas/tags/population-schemas-1.0.0</connection>
+		<developerConnection>scm:svn:svn://svn.vgregion.se/vgr/icc/service-descriptions/population-schemas/tags/population-schemas-1.0.0</developerConnection>
+		<url>svn://svn.vgregion.se/vgr/icc/service-descriptions/population-schemas/tags/population-schemas-1.0.0</url>
+	</scm>
+	
+	<properties>
+        <!-- Properties for generating code from WSDL and XML Schemas (JAX-WS + JAXB) -->
+        <schema.path>${basedir}/src/main/resources/schemas</schema.path>
+        <schema.gen.src.dir>${project.build.directory}/generated-sources/cxf</schema.gen.src.dir>
+	</properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.soitoolkit.commons.poms</groupId>
+      <artifactId>soitoolkit-schemas-jax-ws-dependencies</artifactId>
+      <version>${soitoolkit.version}</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+ 
+ 	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>ws.generate</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${schema.gen.src.dir}</sourceRoot>
+							<wsdlOptions>
+	                            <wsdlOption>
+									<wsdl>${schema.path}/interactions/LookupDistrictInformationInteraction/LookupDistrictInformationInteraction_1.0_RIVTABP21.wsdl</wsdl>
+									<extraargs>
+									<extraarg>-validate</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:LookupDistrictInformation:1:rivtabp21=se.riv.population.residentmaster.lookupdistrictinformation.v1.rivtabp21</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:LookupDistrictInformationResponder:1=se.riv.population.residentmaster.lookupdistrictinformationresponder.v1</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:1=se.riv.population.residentmaster.v1</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg> 
+									</extraargs>
+	            				</wsdlOption>
+	                            <wsdlOption>
+									<wsdl>${schema.path}/interactions/LookupResidentForFullProfileInteraction/LookupResidentForFullProfileInteraction_1.0_RIVTABP21.wsdl</wsdl>
+									<extraargs>
+									<extraarg>-validate</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:LookupResidentForFullProfile:1:rivtabp21=se.riv.population.residentmaster.lookupresidentforfullprofile.v1.rivtabp21</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:LookupResidentForFullProfileResponder:1=se.riv.population.residentmaster.lookupresidentforfullprofileresponder.v1</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:1=se.riv.population.residentmaster.v1</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg> 
+									</extraargs>
+	            				</wsdlOption>
+	                            <wsdlOption>
+									<wsdl>${schema.path}/interactions/LookupResidentHistoryInteraction/LookupResidentHistoryInteraction_1.0_RIVTABP21.wsdl</wsdl>
+									<extraargs>
+									<extraarg>-validate</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:LookupResidentHistory:1:rivtabp21=se.riv.population.residentmaster.lookupresidenthistory.v1.rivtabp21</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:LookupResidentHistoryResponder:1=se.riv.population.residentmaster.lookupresidenthistoryresponder.v1</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:1=se.riv.population.residentmaster.v1</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg> 
+									</extraargs>
+	            				</wsdlOption>
+	                            <wsdlOption>
+									<wsdl>${schema.path}/interactions/UpdateResidentInteraction/UpdateResidentInteraction_1.0_RIVTABP21.wsdl</wsdl>
+									<extraargs>
+									<extraarg>-validate</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:UpdateResident:1:rivtabp21=se.riv.population.residentmaster.updateresident.v1.rivtabp21</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:UpdateResidentResponder:1=se.riv.population.residentmaster.updateresidentresponder.v1</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:population:residentmaster:1=se.riv.population.residentmaster.v1</extraarg> 
+									<extraarg>-p</extraarg>
+									<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg> 
+									</extraargs>
+	            				</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- Create a zip-file only containing wsdl & xsd files, i.e. no JAX-WS/JAXB-generated artifacts, for example for a Microsoft .Net C# app -->
+				<artifactId>maven-assembly-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<!-- Plugin-dependency to a shared assembly-descriptor that creates the zip-file -->
+						<groupId>org.soitoolkit.commons.poms</groupId>
+						<artifactId>soitoolkit-assembly-descriptors</artifactId>
+						<version>${soitoolkit.version}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>schema-assembly-descriptor.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+  
+</project>
