@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Västra Götalandsregion licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema 
+    xmlns:xs='http://www.w3.org/2001/XMLSchema'
+    xmlns:riv="urn:riv13606:v1.1" 
+    xmlns='urn:riv:ehr:patientsummary:1'
+    targetNamespace='urn:riv:ehr:patientsummary:1'
+    elementFormDefault='qualified' 
+    attributeFormDefault='unqualified' 
+    version='1.0'>
+
+    <xs:annotation>
+        <xs:documentation>
+            Schemat baseras på de datatyper som ingår i 
+            "RIV-meddelande för NPÖ version 2.1" ursprungligen
+            framtagna av Örebro Läns Landsting.
+            
+            Schemat har anpassats för att fungera inom Västra Götalandsregionen
+            bla för att följa versionshantering enligt RIV-TA samt för specification
+           av ett bättre anpassat namespace.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:import schemaLocation="XML-datatyper.xsd" namespace="urn:riv13606:v1.1" />
+
+    <xs:complexType name="PatientIdType">
+        <xs:annotation>
+            <xs:documentation>Identifierare för patient/person som data ska hämtas för</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="person-id" type="riv:II"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name='StartdatumType'>
+        <xs:annotation>
+            <xs:documentation>Hämta information från och med detta datum</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name='starttidpunkt' type='riv:TP'/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name='SlutdatumType'>
+        <xs:annotation>
+            <xs:documentation>Hämta information till och med detta datum</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name='sluttidpunkt' type='riv:TP'/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name='DatakallaType'>
+        <xs:annotation>
+            <xs:documentation>Datakälla som informationen ska hämtas ifrån</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name='datakalla-id' type='riv:II'/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Vard-_och_omsorgstagareType">
+        <xs:sequence>
+            <xs:element name="person-id" type="riv:II"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Vard-_och_omsorgskontaktType">
+        <xs:sequence>
+            <xs:element name="kontakt-id" type="riv:II"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Vard-_och_omsorgspersonalType">
+        <xs:sequence>
+            <xs:element name="personal-id" type="riv:II"/>
+            <xs:element name="namn" type="riv:TXT" minOccurs="0"/>
+            <xs:element name="befattning" type="riv:TXT" minOccurs="0"/>
+            <xs:element name="enhet" type="EnhetType" minOccurs="0"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EnhetType">
+        <xs:sequence>
+            <xs:element name="enhets-id" type="riv:II"/>
+            <xs:element name="enhetsnamn" type="riv:TXT" minOccurs="0"/>
+            <xs:element name="telefonnummer" type="riv:TXT" minOccurs="0"/>
+            <xs:element name="e-postadress" type="riv:TXT" minOccurs="0"/>
+            <xs:element name="postadress" type="riv:TXT" minOccurs="0"/>
+            <xs:element name="geografisk_plats" type="riv:TXT" minOccurs="0"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name='ResultCodeEnum'>
+        <xs:restriction base='xs:string'>
+            <xs:enumeration value='OK' />
+            <xs:enumeration value='ERROR' />
+            <xs:enumeration value='INFO' />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

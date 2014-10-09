@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Västra Götalandsregion licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<wsdl:definitions 
+    name='GetWarningsInteraction' 
+    xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' 
+    xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+    xmlns:xs='http://www.w3.org/2001/XMLSchema' 
+    xmlns:tjsr='urn:riv:ehr:patientsummary:GetWarningsResponder:1' 
+    xmlns:tjsi='urn:riv:ehr:patientsummary:GetWarningsInitiator:1' 
+    xmlns:tns='urn:riv:ehr:patientsummary:GetWarnings:1:rivtabp21' 
+    targetNamespace='urn:riv:ehr:patientsummary:GetWarnings:1:rivtabp21' 
+    xmlns:itr='urn:riv:itintegration:registry:1'>
+
+	<xs:annotation>
+		<xs:documentation>
+			Tjänsteinteraktionens namn: GetWarningsInteraction
+			Beskrivning:
+			Request to retrieve warnings from medical records system within Västra Götalandsregionen
+			Revisioner:
+			Tjänstedomän: ehr:patientsummary:warnings
+			Tjänsteinteraktionstyp: Fråga-Svar
+			WS-profil: RIVTABP21
+			Förvaltas av: Västra Götalandsregion
+			 </xs:documentation>
+	</xs:annotation>
+	
+	<wsdl:types>
+		<xs:schema targetNamespace='urn:riv:ehr:patientsummary:GetWarnings:1:rivtabp21'>
+			<xs:import schemaLocation='GetWarningsResponder_1.0.xsd' namespace='urn:riv:ehr:patientsummary:GetWarningsResponder:1' />
+			<xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:message name='GetWarningsRequest'>
+		<wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+			<wsdl:documentation>The organisation number of the receiving part</wsdl:documentation>
+		</wsdl:part>
+		<wsdl:part name='parameters' element='tjsr:GetWarnings' />
+	</wsdl:message>
+	
+	<wsdl:message name='GetWarningsResponse'>
+		<wsdl:part name='parameters' element='tjsr:GetWarningsResponse' />
+	</wsdl:message>
+	
+	<wsdl:portType name='GetWarningsResponderInterface'>
+		<wsdl:operation name='GetWarnings'>
+			<wsdl:input message='tns:GetWarningsRequest' />
+			<wsdl:output message='tns:GetWarningsResponse' />
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name='GetWarningsResponderBinding' type='tns:GetWarningsResponderInterface'>
+		<soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+		<wsdl:operation name='GetWarnings'>
+			<soap:operation soapAction='urn:riv:ehr:patientsummary:GetWarningsResponder:1:GetWarnings' style='document' />
+			<wsdl:input>
+				<soap:header use='literal' message='tns:GetWarningsRequest' part='LogicalAddress' />
+				<soap:body use='literal' parts='parameters' />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use='literal' />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name='GetWarningsResponderService'>
+		<wsdl:port name='GetWarningsResponderPort' binding='tns:GetWarningsResponderBinding'>
+			<soap:address location='http://tempuri.org' />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

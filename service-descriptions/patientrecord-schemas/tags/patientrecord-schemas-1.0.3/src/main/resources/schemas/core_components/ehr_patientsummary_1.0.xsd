@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Västra Götalandsregion licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema 
+    xmlns:xs='http://www.w3.org/2001/XMLSchema'
+    xmlns:riv="urn:riv13606:v1.1" 
+    xmlns='urn:riv:ehr:patientsummary:1'
+    targetNamespace='urn:riv:ehr:patientsummary:1'
+	elementFormDefault='qualified' 
+	attributeFormDefault='unqualified' 
+	version='1.0'>
+
+    <xs:annotation>
+        <xs:documentation>
+			 Schemat baseras på de datatyper som ingår i 
+			 "RIV-meddelande för NPÖ version 2.1" ursprungligen
+			 framtagna av Örebro Läns Landsting.
+			 
+			 Schemat har anpassats för att fungera inom Västra Götalandsregionen
+			 bla för att följa versionshantering enligt RIV-TA samt för specification
+			 av ett bättre anpassat namespace.
+        </xs:documentation>
+    </xs:annotation>
+    
+    <xs:import schemaLocation="XML-datatyper.xsd" namespace="urn:riv13606:v1.1" />
+    
+    <xs:complexType name="PatientIdType">
+        <xs:annotation>
+            <xs:documentation>Identifierare för patient/person som data ska hämtas för</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="person-id" type="riv:II"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name='StartdatumType'>
+        <xs:annotation>
+            <xs:documentation>Hämta information från och med detta datum</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name='starttidpunkt' type='riv:TP'/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+        
+    <xs:complexType name='SlutdatumType'>
+        <xs:annotation>
+            <xs:documentation>Hämta information till och med detta datum</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name='sluttidpunkt' type='riv:TP'/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name='DatakallaType'>
+        <xs:annotation>
+	        <xs:documentation>Datakälla som informationen ska hämtas ifrån</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name='datakalla-id' type='riv:II'/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+
+	<xs:complexType name="Vard-_och_omsorgstagareType">
+		<xs:sequence>
+			<xs:element name="person-id" type="riv:II"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Vard-_och_omsorgskontaktType">
+		<xs:sequence>
+			<xs:element name="kontakt-id" type="riv:II"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Vard-_och_omsorgspersonalType">
+		<xs:sequence>
+			<xs:element name="personal-id" type="riv:II"/>
+			<xs:element name="namn" type="riv:TXT" minOccurs="0"/>
+			<xs:element name="befattning" type="riv:TXT" minOccurs="0"/>
+			<xs:element name="enhet" type="EnhetType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EnhetType">
+		<xs:sequence>
+			<xs:element name="enhets-id" type="riv:II"/>
+			<xs:element name="enhetsnamn" type="riv:TXT" minOccurs="0"/>
+			<xs:element name="telefonnummer" type="riv:TXT" minOccurs="0"/>
+			<xs:element name="e-postadress" type="riv:TXT" minOccurs="0"/>
+			<xs:element name="postadress" type="riv:TXT" minOccurs="0"/>
+			<xs:element name="geografisk_plats" type="riv:TXT" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+    <!--  
+    <xs:simpleType name="NullFlavor">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NI"/>
+            <xs:enumeration value="INV"/>
+            <xs:enumeration value="OTH"/>
+            <xs:enumeration value="NINF"/>
+            <xs:enumeration value="PINF"/>
+            <xs:enumeration value="UNC"/>
+            <xs:enumeration value="DER"/>
+            <xs:enumeration value="UNK"/>
+            <xs:enumeration value="ASKU"/>
+            <xs:enumeration value="NAV"/>
+            <xs:enumeration value="QS"/>
+            <xs:enumeration value="NASK"/>
+            <xs:enumeration value="TRC"/>
+            <xs:enumeration value="MSK"/>
+            <xs:enumeration value="NA"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TXT">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DT">
+       <xs:annotation>
+           <xs:documentation>
+               Format: Datum
+               Förkortning: DT
+               Datatyp ISO: Date
+               Engelsk benämning ISO: Date
+               
+               Angivelse av datum. Formatet är ÅÅÅÅMMDD.
+               Det är tillåtet att ange ”datum” med lägre precision, dvs månad eller år. 
+               Datatypen kallas fortfarande ”datum”. Formatet är ÅÅÅÅMM respektive ÅÅÅÅ.
+               
+               Exempel: 20060713
+           </xs:documentation>
+       </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="^[1-2]\d{3}((([0]\d)|([1][0-2]))|(([0]\d)|([1][0-2]))(([1-2]\d)|([3][0-1])))?$"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TP">
+        <xs:annotation>
+            <xs:documentation>
+                Format: Tidpunkt
+                Förkortning: TP
+                Datatyp ISO: TS
+                Engelsk benämning ISO: Point in time
+               
+                Angivelse av datum och klockslag med exaktheten sekund. Formatet är ÅÅÅÅMMDDhhmmssxxxxx.
+                Det är tillåtet att ange tidpunkt med lägre precision, d.v.s minut eller timme. Formatet är hhmm respektive hh.
+                
+                Exempel: ÅÅÅÅMMDDhhmm eller ÅÅÅÅMMDDhh
+           </xs:documentation>
+       </xs:annotation>
+        <xs:restriction base="xs:dateTime"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="URL">
+        <xs:restriction base="xs:anyURI"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="IVL">
+        <xs:restriction base="xs:duration"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="SF">
+        <xs:attribute name="varde" type="xs:boolean"/>
+    </xs:complexType>
+    
+    <xs:complexType name="SFT">
+        <xs:complexContent>
+            <xs:extension base="SF">
+                <xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="KTOV">
+       <xs:annotation>
+           <xs:documentation>
+               Format: Kodat värde med text och OID
+               Förkortning: KTOV
+               Datatyp ISO: CD
+               Engelsk benämning ISO: Coded value
+               
+               Identifiering av berört kodverk/klassifikation (genom sk OID) samt aktuell kod och text.
+               
+               Exempel: ”A00.9 Kolera, ospecificerat OID för KSH97 v97 mycket allvarlig kolera”
+               
+               Kod            K    Aktuellt kodvärde
+               Text ￼          TX ￼  Klartext
+￼￼￼￼￼￼￼￼￼               Kodverk        OID  Identifiering av berört kodverk/ klassifikation
+               Version        TX   Kodverkets version
+               Förtydligande  TX   Använd tex vid förtydligande av kod ”Övrigt”
+           </xs:documentation>
+       </xs:annotation>
+        <xs:sequence>
+            <xs:element name="text" type="xs:string"/>
+            <xs:element name="kod" type="xs:string"/>
+            <xs:element name="kodverk" type="xs:string"/>
+            <xs:element name="version" type="xs:string"/>
+            <xs:element name="fortydligande" type="xs:string"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="II">
+        <xs:sequence>
+            <xs:element name="kodverk" type="xs:string"/>
+            <xs:element name="kod" type="xs:string"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="VA">
+        <xs:sequence>
+            <xs:element name="varde" type="xs:string"/>
+            <xs:element name="vardetyp" type="xs:string"/>
+            <xs:element name="enhet" type="xs:string"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="KV">
+        <xs:sequence>
+            <xs:element name="mangd" type="xs:unsignedLong"/>
+            <xs:element name="sort" type="xs:string"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="KOM">
+        <xs:sequence>
+            <xs:element name="telefonnummer" type="xs:string" minOccurs="0"/>
+            <xs:element name="fax" type="xs:string" minOccurs="0"/>
+            <xs:element name="epost" type="xs:string" minOccurs="0"/>
+            <xs:element name="fritext" type="xs:string" minOccurs="0"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="FLT"/>
+    
+    <xs:complexType name="DP">
+        <xs:sequence>
+            <xs:element name="referens" type="URL" minOccurs="0"/>
+            <xs:element name="beskrivning" type="TXT" minOccurs="0"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    -->
+    
+    <xs:simpleType name='ResultCodeEnum'>
+        <xs:restriction base='xs:string'>
+            <xs:enumeration value='OK' />
+            <xs:enumeration value='ERROR' />
+            <xs:enumeration value='INFO' />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

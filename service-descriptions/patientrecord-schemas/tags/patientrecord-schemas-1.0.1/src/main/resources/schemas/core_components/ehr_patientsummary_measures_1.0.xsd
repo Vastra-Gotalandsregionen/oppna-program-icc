@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Västra Götalandsregion licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:riv="urn:riv13606:v1.1"
+    xmlns="urn:riv:ehr:patientsummary:measures:1"
+    xmlns:core='urn:riv:ehr:patientsummary:1'
+    targetNamespace="urn:riv:ehr:patientsummary:measures:1" 
+    elementFormDefault="qualified" 
+    attributeFormDefault="unqualified"
+    version="1.0">
+
+    <xs:annotation>
+        <xs:documentation xml:lang="sv">
+            Schemat baseras på de datatyper och den struktur som tagits fram
+            för tjänstekontrakt som ingår i "RIV-meddelande för NPÖ version 2.1"
+            och som ursprungligen är framtagna av Örebro Läns Landsting.
+            
+           	Schemat har tagits fram för att fungera inom Västra Götalandsregionen
+			bla för att följa versionshantering enligt RIV-TA 2.1 samt för specification
+			av ett bättre anpassat namespace.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:import schemaLocation="XML-datatyper.xsd" namespace="urn:riv13606:v1.1" />
+    <xs:import schemaLocation='ehr_patientsummary_1.0.xsd' namespace='urn:riv:ehr:patientsummary:1' />
+
+	<xs:element name="Informationsmangd_for_Matvarden">
+		<xs:annotation>
+			 <xs:documentation xml:lang="sv">Informationsmängd som används för att beskriva ett mätvarde med tillhörande relationer</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="journal-id" type="riv:II"/>
+				<xs:element name="system-id" type="riv:II"/>
+				<xs:element name="agande_vardgivare-id" type="riv:II"/>
+				<xs:element name="agande_vardenhet-id" type="riv:II"/>
+				<xs:element name="matvarde" type="MatvardeType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="MatvardeType">
+		<xs:sequence>
+			<xs:element name="matvarde-id" type="riv:II"/>
+            <xs:element name="matvarde" type="riv:VA" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="registreringstidpunkt" type="riv:TP"/>
+			<xs:element name="signeringstidpunkt" type="riv:TP" minOccurs="0"/>
+			<xs:element name="handelsetidpunkt" type="riv:TP"/>
+			<!--
+			<xs:element name="vard_och_omsorgspersonal" type="core:Vard-_och_omsorgspersonalType"/>
+			-->
+			<xs:element name="ansvarig" type="core:Vard-_och_omsorgspersonalType"/>
+			<xs:element name="registreradAv" type="core:Vard-_och_omsorgspersonalType" minOccurs="0"/>
+			<xs:element name="signeradAv" type="core:Vard-_och_omsorgspersonalType" minOccurs="0"/>
+			
+			<xs:element name="vard_och_omsorgskontakt" type="core:Vard-_och_omsorgskontaktType" minOccurs="0"/>
+			<xs:element name="vard_och_omsorgstagare" type="core:Vard-_och_omsorgstagareType"/>  
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>
