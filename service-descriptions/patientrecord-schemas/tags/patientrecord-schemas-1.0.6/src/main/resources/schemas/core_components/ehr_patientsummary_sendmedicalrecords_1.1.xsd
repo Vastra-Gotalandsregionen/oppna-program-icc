@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Västra Götalandsregion licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:riv="urn:riv13606:v1.1"
+    xmlns="urn:riv:ehr:patientsummary:sendmedicalrecords:1"
+    xmlns:core='urn:riv:ehr:patientsummary:1'
+    xmlns:diagnoses='urn:riv:ehr:patientsummary:diagnoses:1'
+    xmlns:measures='urn:riv:ehr:patientsummary:measures:1'
+    targetNamespace="urn:riv:ehr:patientsummary:sendmedicalrecords:1" 
+    elementFormDefault="qualified" 
+    attributeFormDefault="unqualified"
+    version="1.1">
+
+    <xs:annotation>
+        <xs:documentation xml:lang="sv">
+            Schemat baseras på tjänstekontraktet för vård och omsorgsdocument som
+            ingår i "RIV-meddelande för NPÖ version 2.1".
+            
+            Schemat har tagits fram för att fungera inom Västra Götalandsregionen
+            bla för att följa versionshantering enligt RIV-TA 2.1 samt för specification
+            av ett bättre anpassat namespace.
+            
+            Ursprunligt filnamn  : Vard_och_omsorgsdokument version 2.1.xsd
+            Ursprunligt namespace: urn:riv13606:v1.1
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:import schemaLocation="XML-datatyper.xsd" namespace="urn:riv13606:v1.1" />
+    <xs:import schemaLocation='ehr_patientsummary_1.0.xsd' namespace='urn:riv:ehr:patientsummary:1' />
+    <xs:import schemaLocation='ehr_patientsummary_diagnoses_1.0.xsd' namespace='urn:riv:ehr:patientsummary:diagnoses:1' />
+    <xs:import schemaLocation='ehr_patientsummary_measures_1.0.xsd' namespace='urn:riv:ehr:patientsummary:measures:1' />
+
+    <xs:element name="Informationsmangd_for_Vard-_och_omsorgsdokument">
+        <xs:annotation>
+            <xs:documentation xml:lang="sv">Informationsmängd som används för att beskriva ett vård- och omsorgsdokument med tillhörande relationer i NPÖ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="journal-id" type="riv:II"/>
+                <xs:element name="system-id" type="riv:II"/>
+                <xs:element name="agande_vardgivare-id" type="riv:II"/>
+                <xs:element name="agande_vardenhet-id" type="riv:II"/>
+                
+                <xs:element name="vard-_och_omsorgstagare" type="core:Vard-_och_omsorgstagareType"/>
+                <xs:element name="ansvarig" type="core:Vard-_och_omsorgspersonalType"/>
+                <xs:element name="registreradAv" type="core:Vard-_och_omsorgspersonalType" minOccurs="0"/>
+                <xs:element name="signeradAv" type="core:Vard-_och_omsorgspersonalType" minOccurs="0"/>
+                
+                <xs:element name="dokumentnamn" type="riv:TXT" minOccurs="0"/>
+                <xs:element name="dokument-id" type="riv:II"/>
+                <xs:element name="dokumenttyp" type="riv:KTOV"/>
+                
+                <xs:element name="registreringstidpunkt" type="riv:TP"/>
+                <xs:element name="signeringstidpunkt" type="riv:TP" minOccurs="0"/>
+                <xs:element name="handelsetidpunkt" type="riv:TP" minOccurs="0"/>
+
+                <xs:element name="diagnoser" type="diagnoses:DiagnosType" minOccurs='0' maxOccurs='unbounded'/>
+                <xs:element name="matvarden" type="measures:MatvardeType" minOccurs='0' maxOccurs='unbounded'/>
+                <xs:element name="vard-_och_omsorgsdokument" type="Vard-_och_omsorgsdokumentType" minOccurs='0' maxOccurs='unbounded'/>
+                <xs:element name="utford_atgard" type="Utford_atgardType" minOccurs='0' maxOccurs='unbounded'/>
+                <xs:element name="inforesurstyp" type="riv:KTOV" minOccurs='0' />
+                
+                <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+                 
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="Vard-_och_omsorgsdokumentType">
+        <xs:sequence>
+            <xs:element name="dokument-id" type="riv:II"/>
+            <xs:element name="dokumenttyp" type="riv:KTOV"/>
+            <xs:element name="dokumentnamn" type="riv:TXT" minOccurs="0"/>
+            <xs:element name="registreringstidpunkt" type="riv:TP"/>
+            <xs:element name="signeringstidpunkt" type="riv:TP" minOccurs="0"/>
+            <xs:element name="handelsetidpunkt" type="riv:TP" minOccurs="0"/>
+            <xs:choice>
+                <xs:element name="innehall_text" type="riv:TXT" minOccurs="0"/>
+                <xs:element name="innehall_multimedia" type="riv:URL" minOccurs="0"/>
+            </xs:choice>
+            <xs:element name="ansvarig" type="core:Vard-_och_omsorgspersonalType"/>
+            <xs:element name="registreradAv" type="core:Vard-_och_omsorgspersonalType"/>
+            <xs:element name="signeradAv" type="core:Vard-_och_omsorgspersonalType"/>
+            <xs:element name="vard-_och_omsorgskontakt" type="core:Vard-_och_omsorgskontaktType" minOccurs="0"/>
+
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Utford_atgardType">
+        <xs:sequence>
+            <xs:element name="atgard-id" type="riv:II"/>
+            <xs:choice>
+                <xs:sequence>
+                    <xs:element name="atgardskod" type="riv:KTOV"/>
+                    <xs:element name="atgardskod_text" type="riv:TXT" minOccurs="0"/>
+                </xs:sequence>
+                <xs:element name="atgardskod_text" type="riv:TXT"/>
+            </xs:choice>
+            <xs:element name="atgardstid" type="riv:IVL"/>
+            <xs:element name="registreringstidpunkt" type="riv:TP"/>
+            <xs:element name="signeringstidpunkt" type="riv:TP" minOccurs="0"/>
+            <xs:element name="handelsetidpunkt" type="riv:TP"/>
+            <xs:element name="ansvarig" type="core:Vard-_och_omsorgspersonalType"/>
+            <xs:element name="registreradAv" type="core:Vard-_och_omsorgspersonalType" minOccurs="0"/>
+            <xs:element name="signeradAv" type="core:Vard-_och_omsorgspersonalType" minOccurs="0"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

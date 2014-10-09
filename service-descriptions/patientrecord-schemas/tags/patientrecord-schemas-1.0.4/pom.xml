@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT 
+	YOU ARE DOING! [soi-toolkit.gen.version=0.4.1] [soi-toolkit.gen.type=schemas] 
+	[soi-toolkit.gen.createDate=2012-09-27T14:40:58.635+02:00] [soi-toolkit.gen.artifactId=patientrecord] -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>se.vgregion.icc</groupId>
+		<artifactId>icc-pom</artifactId>
+		<version>1.1.2</version>
+	</parent>
+
+
+	<groupId>se.vgregion.icc.sd.patientrecord</groupId>
+	<artifactId>patientrecord-schemas</artifactId>
+	<version>1.0.4</version>
+	<packaging>jar</packaging>
+	<name>patientrecord-schemas</name>
+
+	<scm>
+		<connection>scm:svn:svn://svn.vgregion.se/vgr/icc/service-descriptions/patientrecord-schemas/tags/patientrecord-schemas-1.0.4</connection>
+		<developerConnection>scm:svn:svn://svn.vgregion.se/vgr/icc/service-descriptions/patientrecord-schemas/tags/patientrecord-schemas-1.0.4</developerConnection>
+		<url>svn://svn.vgregion.se/vgr/icc/service-descriptions/patientrecord-schemas/tags/patientrecord-schemas-1.0.4</url>
+	</scm>
+
+	<properties>
+		<!-- Properties for generating code from WSDL and XML Schemas (JAX-WS + 
+			JAXB) -->
+		<schema.path>${basedir}/src/main/resources/schemas</schema.path>
+		<schema.gen.src.dir>${project.build.directory}/generated-sources/cxf</schema.gen.src.dir>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.soitoolkit.commons.poms</groupId>
+			<artifactId>soitoolkit-schemas-jax-ws-dependencies</artifactId>
+			<version>${soitoolkit.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>ws.generate</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${schema.gen.src.dir}</sourceRoot>
+							<wsdlOptions>
+								<wsdloption>
+									<wsdl>${schema.path}/interactions/GetDiagnosesInteraction/GetDiagnosesInteraction_1.0_RIVTABP21.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-p</extraarg>
+										<extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetDiagnosesResponder:1=se.riv.ehr.patientsummary.getdiagnosesresponder.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetDiagnosesInitiator:1=se.riv.ehr.patientsummary.getdiagnosesinitiator.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetDiagnoses:1:rivtabp21=se.riv.ehr.patientsummary.getdiagnoses.v1.rivtabp21</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv13606:v1.1=se.riv13606.v1_1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:1=se.riv.ehr.patientsummary.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:diagnoses:1=se.riv.ehr.patientsummary.diagnoses.v1</extraarg>
+									</extraargs>
+								</wsdloption>
+								<wsdloption>
+									<wsdl>${schema.path}/interactions/GetDrugPrescriptionsInteraction/GetDrugPrescriptionsInteraction_1.0_RIVTABP21.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-p</extraarg>
+										<extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetDrugPrescriptionsResponder:1=se.riv.ehr.patientsummary.getdrugprescriptionsresponder.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetDrugPrescriptionsInitiator:1=se.riv.ehr.patientsummary.getdrugprescriptionsinitiator.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetDrugPrescriptions:1:rivtabp21=se.riv.ehr.patientsummary.getdrugprescriptions.v1.rivtabp21</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv13606:v1.1=se.riv13606.v1_1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:1=se.riv.ehr.patientsummary.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:drugprescriptions:1=se.riv.ehr.patientsummary.drugprescriptions.v1</extraarg>
+									</extraargs>
+								</wsdloption>
+								<wsdloption>
+									<wsdl>${schema.path}/interactions/GetMeasuresInteraction/GetMeasuresInteraction_1.0_RIVTABP21.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-p</extraarg>
+										<extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetMeasuresResponder:1=se.riv.ehr.patientsummary.getmeasuresresponder.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetMeasuresInitiator:1=se.riv.ehr.patientsummary.getmeasuresinitiator.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetMeasures:1:rivtabp21=se.riv.ehr.patientsummary.getmeasures.v1.rivtabp21</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv13606:v1.1=se.riv13606.v1_1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:1=se.riv.ehr.patientsummary.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:measures:1=se.riv.ehr.patientsummary.measures.v1</extraarg>
+									</extraargs>
+								</wsdloption>
+								<wsdloption>
+									<wsdl>${schema.path}/interactions/GetWarningsInteraction/GetWarningsInteraction_1.0_RIVTABP21.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-p</extraarg>
+										<extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetWarningsResponder:1=se.riv.ehr.patientsummary.getwarningsresponder.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetWarningsInitiator:1=se.riv.ehr.patientsummary.getwarningsinitiator.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:GetWarnings:1:rivtabp21=se.riv.ehr.patientsummary.getwarnings.v1.rivtabp21</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv13606:v1.1=se.riv13606.v1_1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:1=se.riv.ehr.patientsummary.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:warnings:1=se.riv.ehr.patientsummary.warnings.v1</extraarg>
+									</extraargs>
+								</wsdloption>
+								<wsdloption>
+									<wsdl>${schema.path}/interactions/SendMedicalRecordsInteraction/SendMedicalRecordsInteraction_1.0_RIVTABP21.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-p</extraarg>
+										<extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:SendMedicalRecordsResponder:1=se.riv.ehr.patientsummary.sendmedicalrecordsresponder.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:SendMedicalRecordsInitiator:1=se.riv.ehr.patientsummary.sendmedicalrecordsinitiator.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:SendMedicalRecords:1:rivtabp21=se.riv.ehr.patientsummary.sendmedicalrecords.v1.rivtabp21</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv13606:v1.1=se.riv13606.v1_1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:1=se.riv.ehr.patientsummary.v1</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>urn:riv:ehr:patientsummary:sendmedicalrecords:1=se.riv.ehr.patientsummary.sendmedicalrecords.v1</extraarg>
+									</extraargs>
+								</wsdloption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- Create a zip-file only containing wsdl & xsd files, i.e. no JAX-WS/JAXB-generated 
+					artifacts, for example for a Microsoft .Net C# app -->
+				<artifactId>maven-assembly-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<!-- Plugin-dependency to a shared assembly-descriptor that creates 
+							the zip-file -->
+						<groupId>org.soitoolkit.commons.poms</groupId>
+						<artifactId>soitoolkit-assembly-descriptors</artifactId>
+						<version>${soitoolkit.version}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>schema-assembly-descriptor.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
