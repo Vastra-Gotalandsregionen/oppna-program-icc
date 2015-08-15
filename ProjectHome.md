@@ -1,0 +1,47 @@
+# Välkommen till Västra Götalandsregionen ICC #
+
+`oppna-program-icc` är en del i Västra Götalandsregionens satsning på öppen källkod inom ramen för [Öppna Program](http://code.google.com/p/oppna-program).
+
+## Introduktion ##
+Denna sida pekar ut regler och riktlinjer framtagna av VGR IT ICC (Västra Götalandsregionen IT, Integration Competence center)
+
+## Strategier ##
+  * [Integrationsstrategi](http://oppna-program-icc.googlecode.com/svn/wiki/dokument/Integrationsstrategi.pdf) - Komplett version av VGR integrationsstrategi
+  * [Integrationsstrategi-checklista](http://oppna-program-icc.googlecode.com/svn/wiki/dokument/Integrationsstrategi_checklista.pdf) - Checklistan är en sammanfattning av VGR integrationsstrategi
+
+## Kontaktperson ##
+  * Integrationer hanteras av ICC (Integration Competence Center) kontaktperson `lars-ake.hallberg@vgregion.se`
+
+<br>
+<img src='http://oppna-program-icc.googlecode.com/svn/wiki/bilder/integration.gif' />
+
+
+<h2>Tjänstekontrakt på VGR tjänsteplattform</h2>
+<table><thead><th> <b>Populärnamn</b> </th><th> <b>Tjänstedomän</b> </th><th> <b>Version</b> </th><th> <b>RIV TA BP</b> </th><th> <b>Nationellt</b> </th><th> <b>Tjänsteschema</b> </th><th> <b>Dokumentation</b> </th></thead><tbody>
+Dokumentation<br>
+<tr><td> Födelseanmälan     </td><td> healthcertificate:lifeline </td><td> 1.0            </td><td> 2.1              </td><td> X                 </td><td> <a href='https://rivta.googlecode.com/files/ServiceContracts_healthcertificate_lifeline_1.0_beta-r988.zip'>ServiceContracts_healthcertificate_lifeline_1.0_beta-r988.zip</a></td><td> <a href='http://www.rivta.se/domains/healthcertificate_lifeline.html'>healthcertificate:lifeline</a> </td></tr>
+<tr><td> HSA Webservices    </td><td> hsa                 </td><td> 2.27.0         </td><td> -                </td><td> X                 </td><td>                      </td><td> <a href='http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Stodjande/hsaws_anvandarhandledning.pdf'>HSA Web Service - Användarh</a>andledning </td></tr>
+<tr><td> Infektionsverktyget </td><td> processdevelopment:infections </td><td> 1.0.1          </td><td> 2.0              </td><td> X                 </td><td> <a href='http://rivta.se/downloads/ServiceContracts_processdevelopment_infections_1.0.1.zip'>ServiceContracts_processdevelopment_infections_1.0.1.zip</a> </td><td> <a href='http://www.rivta.se/domains/processdevelopment_infections.html'>processdevelopment:infections</a> </td></tr>
+<tr><td> Läkarintyg (Elektroniskt sjukintyg) </td><td> insuranceprocess:healthreporting </td><td> 3.0.0          </td><td> 2.0              </td><td> X                 </td><td> <a href='https://rivta.googlecode.com/files/Servicecontracts_insuranceprocess_healthreporting_3.0.0.zip'>ServiceContracts_insuranceprocess_healthreporting_3.0.0.zip</a> </td><td> <a href='http://www.rivta.se/domains/insuranceprocess_healthreporting.html'>insuranceprocess:healthreporting</a> </td></tr>
+<tr><td> Nationell Listning </td><td> crm:carelisting     </td><td> 1.0            </td><td> 2.0              </td><td> X                 </td><td> <a href='http://rivta.se/downloads/TD_CARELISTING_1_0_R.zip'>TD_CARELISTING_1_0_R.zip</a> </td><td> <a href='http://www.rivta.se/domains/crm_carelisting.html'>crm:carelisting</a> </td></tr>
+<tr><td> Nationellt e-Receptformat (NEF)</td><td> Prescriptionservice </td><td> 2.1            </td><td> -                </td><td> X                 </td><td>                      </td><td> <a href='http://www.ehalsomyndigheten.se/ehalsotjanster/e-recepttjanster/forskrivningsstod/nef/'>eHälsomyndigheten</a> </td></tr>
+<tr><td> Organisationsinformation </td><td> orgmaster:hsa       </td><td> 1.0            </td><td> 2.1              </td><td> -                 </td><td>                      </td><td> <a href='http://www.rivta.se/domains/orgmaster_hsa.html'>orgmaster:hsa</a> </td></tr>
+<tr><td> Partneringångar Receptregistret </td><td> pirr.receptpartner.se </td><td> 1.3            </td><td> -                </td><td> X                 </td><td>                      </td><td>                      </td></tr>
+<tr><td> Patientjournal     </td><td> ehr:patientsummary  </td><td> 1.1            </td><td> 2.1              </td><td> -                 </td><td>                      </td><td> <a href='https://code.google.com/p/oppna-program-icc/source/browse/service-descriptions/authorization-delegation-schemas/tags/authorization-delegation-schemas-1.0.7/docs/RIV_21_Delegeringstjnst_Bilaga_51_Tjnstekontraktbeskrivning_Regelverk_120913.doc'>Delegering.doc</a></td></tr>
+<tr><td> Personuppgifter    </td><td> population:residentmaster </td><td> 1.1            </td><td> 2.1              </td><td> X                 </td><td> <a href='http://rivta.se/downloads/Population_residentmaster_1.1_RC4.zip'>Population_residentmaster_1.1_RC4.zip</a> </td><td> <a href='http://www.rivta.se/domains/population_residentmaster.html'>population:residentmaster</a> </td></tr>
+<tr><td> Personuppgifter - regional utökning </td><td> population:residentmaster </td><td> 1.1            </td><td> 2.1              </td><td> -                 </td><td>                      </td><td>                      </td></tr>
+<tr><td> Säkerhetstjänster - Patientrelation</td><td> ehr:patientrelationship </td><td> 1.0            </td><td> 2.1              </td><td> X                 </td><td> <a href='http://rivta.se/downloads/ServiceContracts_ehr_patientrelationship_1.0.1.zip'>ServiceContracts_ehr_patientrelationship_1.0.1.zip</a> </td><td> <a href='http://www.rivta.se/domains/ehr_patientrelationship.html'>ehr:patientrelationship</a> </td></tr>
+<tr><td> Säkerhetstjänster - Samtycke</td><td> ehr:patientconsent  </td><td> 1.0            </td><td> 2.1              </td><td> X                 </td><td> <a href='http://rivta.se/downloads/ServiceContracts_ehr_patientconsent_1_0_1.zip'>ServiceContracts_ehr_patientconsent_1_0_1.zip</a> </td><td> <a href='http://www.rivta.se/domains/ehr_patientconsent.html'>ehr:patientconsent</a> </td></tr>
+<tr><td> Säkerhetstjänster - Spärrhantering </td><td> ehr:blocking        </td><td> 3.0            </td><td> 2.1              </td><td> X                 </td><td> <a href='https://rivta.googlecode.com/files/ServiceContracts_ehr_blocking_3_0.zip'>ServiceContracts_ehr_blocking_3_0.zip</a> </td><td> <a href='http://www.rivta.se/domains/ehr_blocking.html'>ehr:blocking</a> </td></tr>
+<tr><td> Terminologitjänst  </td><td> informatics:terminology </td><td> 1.0.0          </td><td> 2.0              </td><td> X                 </td><td> <a href='http://rivta.se/downloads/ServiceContracts_informatics_terminology_1.0.0.zip'>ServiceContracts_informatics_terminology_1.0.0.zip</a> </td><td> <a href='http://www.rivta.se/domains/informatics_terminology.html'>informatics:terminology</a> </td></tr>
+<tr><td> Tjänsteövervakning </td><td> itintegration:monitoring </td><td> 1.0.0          </td><td> 2.1              </td><td> X                 </td><td> <a href='http://rivta.se/downloads/ServiceContracts_itintegration_monitoring-1.0.0.zip'>ServiceContracts_itintegration_monitoring-1.0.0.zip</a> </td><td> <a href='http://www.rivta.se/domains/itintegration_monitoring.html'>itintegration:monitoring</a> </td></tr></tbody></table>
+
+<h2>Regionala tjänstekontrakt</h2>
+
+Regionala tjänstekontrakt är utformade enligt <a href='http://rivta.se/'>RIV Tekniska anvisningar</a>
+
+<table><thead><th> <b>Namn</b> </th><th> <b>Version</b> </th><th> <b>RIV TA BP</b> </th><th> <b>Nedladdning</b> </th><th> <b>Maven GroupId - ArtifactId</b> </th></thead><tbody>
+<tr><td> Authorization-Delegation </td><td> 1.0.7          </td><td> 2.1              </td><td> <a href='http://code.google.com/p/oppna-program-icc/source/browse/#svn%2Fservice-descriptions%2Fauthorization-delegation-schemas%2Ftags%2Fauthorization-delegation-schemas-1.0.7'>Källkod</a>, <a href='http://repo1.maven.org/maven2/se/vgregion/icc/sd/authorization/authorization-delegation-schemas/1.0.7/authorization-delegation-schemas-1.0.7.jar'>Java</a>, <a href='http://repo1.maven.org/maven2/se/vgregion/icc/sd/authorization/authorization-delegation-schemas/1.0.7/authorization-delegation-schemas-1.0.7-schemas.zip'>MS .Net</a> </td><td> <code>se.vgregion.icc.sd.authorization - authorization-delegation-schemas</code> </td></tr>
+<tr><td> Patientjournal </td><td> 1.0.7          </td><td> 2.1              </td><td>                    </td><td> <code>se.vgregion.icc.sd.patientrecord - patientrecord-schemas</code> </td></tr>
+<tr><td> Personuppgifter - regional utökning </td><td> 1.0.7          </td><td> 2.1              </td><td>                    </td><td> <code>se.vgregion.icc.sd.population - population-schemas</code> </td></tr>
+<tr><td> Portal      </td><td> 1.0.16         </td><td> 2.0              </td><td> <a href='http://code.google.com/p/oppna-program-icc/source/browse/#svn%2Fservice-descriptions%2Fportal-schemas%2Ftags%2Fportal-schemas-1.0.16'>Källkod</a>, <a href='http://repo1.maven.org/maven2/se/vgregion/icc/sd/portal/portal-schemas/1.0.16/portal-schemas-1.0.16.jar'>Java</a>, <a href='http://repo1.maven.org/maven2/se/vgregion/icc/sd/portal/portal-schemas/1.0.16/portal-schemas-1.0.16-schemas.zip'>MS .Net</a> </td><td> <code>se.vgregion.icc.sd.portal - portal-schemas</code> </td></tr>
