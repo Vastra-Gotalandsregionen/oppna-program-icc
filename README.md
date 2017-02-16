@@ -1,19 +1,19 @@
 
 <td id="wikicontent" class="psdescription">
   <h1>
-    <a name="V‰lkommen_till_V‰stra_Gˆtalandsregionen_ICC">
+    <a name="V√§lkommen_till_V√§stra_G√∂talandsregionen_ICC">
     </a>
-    V‰lkommen till V‰stra Gˆtalandsregionen ICC
-    <a href="#V‰lkommen_till_V‰stra_Gˆtalandsregionen_ICC" class="section_anchor">
+    V√§lkommen till V√§stra G√∂talandsregionen ICC
+    <a href="#V√§lkommen_till_V√§stra_G√∂talandsregionen_ICC" class="section_anchor">
     </a>
   </h1>
   <p>
     <tt>
       oppna-program-icc
     </tt>
-     ‰r en del i V‰stra Gˆtalandsregionens satsning pÂ ˆppen k‰llkod inom ramen fˆr 
+     √§r en del i V√§stra G√∂talandsregionens satsning p√• √∂ppen k√§llkod inom ramen f√∂r 
     <a href="https://github.com/Vastra-Gotalandsregionen//oppna-program" rel="nofollow">
-      ÷ppna Program
+      √ñppna Program
     </a>
     . 
   </p>
@@ -25,7 +25,7 @@
     </a>
   </h2>
   <p>
-    Denna sida pekar ut regler och riktlinjer framtagna av VGR IT ICC (V‰stra Gˆtalandsregionen IT, Integration Competence center) 
+    Denna sida pekar ut regler och riktlinjer framtagna av VGR IT ICC (V√§stra G√∂talandsregionen IT, Integration Competence center) 
   </p>
   <h2>
     <a name="Strategier">
@@ -45,7 +45,7 @@
       <a href="https://github.com/Vastra-Gotalandsregionen/oppna-program-icc/wiki/dokument/Integrationsstrategi_checklista.pdf" rel="nofollow">
         Integrationsstrategi-checklista
       </a>
-       - Checklistan ‰r en sammanfattning av VGR integrationsstrategi 
+       - Checklistan √§r en sammanfattning av VGR integrationsstrategi 
     </li>
   </ul>
   <h2>
@@ -59,7 +59,7 @@
     <li>
       Integrationer hanteras av ICC (Integration Competence Center) kontaktperson 
       <tt>
-        lars-ake.hallberg@vgregion.se
+        pernilla.abrahamsson@vgregion.se
       </tt>
     </li>
   </ul>
@@ -68,10 +68,10 @@
     <img src="https://github.com/Vastra-Gotalandsregionen/oppna-program-icc/wiki/bilder/integration.gif"/>
   </p>
   <h2>
-    <a name="Tj‰nstekontrakt_pÂ_VGR_tj‰nsteplattform">
+    <a name="Tj√§nstekontrakt_p√•_VGR_tj√§nsteplattform">
     </a>
-    Tj‰nstekontrakt pÂ VGR tj‰nsteplattform
-    <a href="#Tj‰nstekontrakt_pÂ_VGR_tj‰nsteplattform" class="section_anchor">
+    Tj√§nstekontrakt p√• VGR tj√§nsteplattform
+    <a href="#Tj√§nstekontrakt_p√•_VGR_tj√§nsteplattform" class="section_anchor">
     </a>
   </h2>
   <p>
@@ -81,12 +81,12 @@
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
             <strong>
-              Popul‰rnamn
+              Popul√§rnamn
             </strong>
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
             <strong>
-              Tj‰nstedom‰n
+              Tj√§nstedom√§n
             </strong>
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
@@ -106,7 +106,7 @@
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
             <strong>
-              Tj‰nsteschema
+              Tj√§nsteschema
             </strong>
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
@@ -118,7 +118,7 @@
          Dokumentation
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             Fˆdelseanm‰lan 
+             F√∂delseanm√§lan 
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              healthcertificate:lifeline 
@@ -162,7 +162,7 @@
           <td style="border: 1px solid #ccc; padding: 5px;"/>
           <td style="border: 1px solid #ccc; padding: 5px;">
             <a href="http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Stodjande/hsaws_anvandarhandledning.pdf" rel="nofollow">
-              HSA Web Service - Anv‰ndarh
+              HSA Web Service - Anv√§ndarh
             </a>
             andledning 
           </td>
@@ -196,7 +196,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             L‰karintyg (Elektroniskt sjukintyg) 
+             L√§karintyg (Elektroniskt sjukintyg) 
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              insuranceprocess:healthreporting 
@@ -267,7 +267,7 @@
           <td style="border: 1px solid #ccc; padding: 5px;"/>
           <td style="border: 1px solid #ccc; padding: 5px;">
             <a href="http://www.ehalsomyndigheten.se/ehalsotjanster/e-recepttjanster/forskrivningsstod/nef/" rel="nofollow">
-              eH‰lsomyndigheten
+              eH√§lsomyndigheten
             </a>
           </td>
         </tr>
@@ -296,7 +296,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             PartneringÂngar Receptregistret 
+             Partnering√•ngar Receptregistret 
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              pirr.receptpartner.se 
@@ -365,7 +365,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             Personuppgifter - regional utˆkning 
+             Personuppgifter - regional ut√∂kning 
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              population:residentmaster 
@@ -384,7 +384,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             S‰kerhetstj‰nster - Patientrelation
+             S√§kerhetstj√§nster - Patientrelation
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              ehr:patientrelationship 
@@ -411,7 +411,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             S‰kerhetstj‰nster - Samtycke
+             S√§kerhetstj√§nster - Samtycke
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              ehr:patientconsent 
@@ -438,7 +438,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             S‰kerhetstj‰nster - Sp‰rrhantering 
+             S√§kerhetstj√§nster - Sp√§rrhantering 
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              ehr:blocking 
@@ -465,7 +465,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             Terminologitj‰nst
+             Terminologitj√§nst
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              informatics:terminology 
@@ -492,7 +492,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             Tj‰nsteˆvervakning 
+             Tj√§nste√∂vervakning 
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              itintegration:monitoring 
@@ -521,14 +521,14 @@
     </table>
   </p>
   <h2>
-    <a name="Regionala_tj‰nstekontrakt">
+    <a name="Regionala_tj√§nstekontrakt">
     </a>
-    Regionala tj‰nstekontrakt
-    <a href="#Regionala_tj‰nstekontrakt" class="section_anchor">
+    Regionala tj√§nstekontrakt
+    <a href="#Regionala_tj√§nstekontrakt" class="section_anchor">
     </a>
   </h2>
   <p>
-    Regionala tj‰nstekontrakt ‰r utformade enligt 
+    Regionala tj√§nstekontrakt √§r utformade enligt 
     <a href="http://rivta.se/" rel="nofollow">
       RIV Tekniska anvisningar
     </a>
@@ -575,7 +575,7 @@
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
             <a href="https://github.com/Vastra-Gotalandsregionen//oppna-program-icc/source/browse/#svn%2Fservice-descriptions%2Fauthorization-delegation-schemas%2Ftags%2Fauthorization-delegation-schemas-1.0.7" rel="nofollow">
-              K‰llkod
+              K√§llkod
             </a>
             , 
             <a href="http://repo1.maven.org/maven2/se/vgregion/icc/sd/authorization/authorization-delegation-schemas/1.0.7/authorization-delegation-schemas-1.0.7.jar" rel="nofollow">
@@ -611,7 +611,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid #ccc; padding: 5px;">
-             Personuppgifter - regional utˆkning 
+             Personuppgifter - regional ut√∂kning 
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
              1.0.7 
@@ -638,7 +638,7 @@
           </td>
           <td style="border: 1px solid #ccc; padding: 5px;">
             <a href="https://github.com/Vastra-Gotalandsregionen//oppna-program-icc/source/browse/#svn%2Fservice-descriptions%2Fportal-schemas%2Ftags%2Fportal-schemas-1.0.16" rel="nofollow">
-              K‰llkod
+              K√§llkod
             </a>
             , 
             <a href="http://repo1.maven.org/maven2/se/vgregion/icc/sd/portal/portal-schemas/1.0.16/portal-schemas-1.0.16.jar" rel="nofollow">
