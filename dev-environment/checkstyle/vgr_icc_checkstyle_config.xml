@@ -87,6 +87,7 @@
     <module name="VisibilityModifier">
       <property name="packageAllowed" value="true"/>
       <property name="protectedAllowed" value="true"/>
+      <property name="ignoreAnnotationCanonicalNames"/>
     </module>
     <module name="ArrayTypeStyle"/>
     <module name="TodoComment"/>
